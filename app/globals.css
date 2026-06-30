@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand colours — matched to smilechildrenscharity.com */
+  --color-yellow:       #FDD70E;
+  --color-yellow-light: #FFE45C;
+  --color-yellow-dark:  #E0B900;
+  --color-black:        #2E3245;
+  --color-white:        #FFFFFF;
+  --color-blue:         #164194;
+  --color-blue-light:   #2E5BB8;
+  --color-blue-dark:    #0F2E6E;
+  --color-gray-50:      #FFF8EE;
+  --color-gray-100:     #F3F4F6;
+  --color-gray-600:     #AAB0BC;
+  --color-gray-800:     #1F2937;
+
+  /* Typography */
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-jost);
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+}
