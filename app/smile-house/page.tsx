@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
+import SectionHeading from "@/components/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
+import PhotoFrame from "@/components/PhotoFrame";
+import WaveDivider from "@/components/WaveDivider";
 import ProgressBar from "@/components/ProgressBar";
 import DonateButton from "@/components/DonateButton";
 
@@ -38,10 +41,7 @@ export default function SmileHousePage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>The Vision</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              Why SMILE House matters.
-            </h2>
+            <SectionHeading eyebrow="The Vision" title="Why SMILE House matters." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
               [SMILE House vision paragraph 1. Stephen to supply]
             </p>
@@ -49,11 +49,11 @@ export default function SmileHousePage() {
               [SMILE House vision paragraph 2. Stephen to supply]
             </p>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
-            [SMILE House render or image. Stephen to supply]
-          </div>
+          <PhotoFrame alt="SMILE House" placeholder="[SMILE House render or image. Stephen to supply]" aspect="video" accentColor="teal" accentPosition="bottom-right" />
         </div>
       </Section>
+
+      <WaveDivider fromColor="#FFFFFF" toColor="#2E3245" />
 
       <Section bg="black">
         <div className="max-w-2xl mx-auto text-center">
@@ -79,12 +79,7 @@ export default function SmileHousePage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>Build Timeline</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Our plan to make it happen.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Build Timeline" title="Our plan to make it happen." />
         <div className="max-w-2xl mx-auto space-y-6">
           {timeline.map((t) => (
             <div

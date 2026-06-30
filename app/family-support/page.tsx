@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Family Support",
@@ -55,12 +55,7 @@ export default function FamilySupportPage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>Our Services</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            What SMILE can provide.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Our Services" title="What SMILE can provide." />
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((s) => (
             <div key={s.title} className="border border-gray-100 rounded-2xl p-8">
@@ -84,12 +79,7 @@ export default function FamilySupportPage() {
       />
 
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>How to Access Support</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Three simple steps.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="How to Access Support" title="Three simple steps." />
         <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           {steps.map((s) => (
             <div key={s.step} className="text-center">
