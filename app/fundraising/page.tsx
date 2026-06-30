@@ -4,7 +4,9 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import PhotoFrame from "@/components/PhotoFrame";
+import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "Fundraising",
@@ -38,12 +40,7 @@ export default function FundraisingPage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>How to Get Started</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Pick an idea. We handle the rest.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="How to Get Started" title="Pick an idea. We handle the rest." />
         <div className="grid md:grid-cols-3 gap-6">
           {ideas.map((idea) => (
             <div key={idea.title} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
@@ -65,13 +62,12 @@ export default function FundraisingPage() {
         bg="teal"
       />
 
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
       <Section bg="gray">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Fundraising Pack</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              Everything you need in one place.
-            </h2>
+            <SectionHeading eyebrow="Fundraising Pack" title="Everything you need in one place." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Our fundraising pack includes SMILE branding, collection sheets, poster templates,
               and guidance on how to set up an online giving page. Everything you need to hit the ground running.
@@ -83,9 +79,7 @@ export default function FundraisingPage() {
               Request a Pack
             </Link>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
-            [Fundraising pack preview image. Stephen to supply]
-          </div>
+          <PhotoFrame alt="Fundraising pack" placeholder="[Fundraising pack preview image. Stephen to supply]" aspect="video" accentColor="teal" accentPosition="bottom-right" />
         </div>
       </Section>
 

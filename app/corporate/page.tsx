@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Corporate Partnerships",
@@ -54,12 +54,7 @@ export default function CorporatePage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>Why Partner With Us</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Good for your business. Great for families.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Why Partner With Us" title="Good for your business. Great for families." />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((b) => (
             <div key={b.title} className="border border-gray-100 rounded-2xl p-6">
@@ -72,12 +67,7 @@ export default function CorporatePage() {
       </Section>
 
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Partnership Tiers</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Find the right level for your business.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Partnership Tiers" title="Find the right level for your business." />
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {tiers.map((t) => (
             <div
@@ -112,13 +102,8 @@ export default function CorporatePage() {
       </Section>
 
       <Section>
-        <div className="text-center mb-10">
-          <SectionLabel>Our Partners</SectionLabel>
-          <h2 className="font-heading text-2xl font-bold text-black mb-2">
-            Businesses that already support SMILE.
-          </h2>
-          <p className="text-gray-500 text-sm">[Partner logos. Stephen to supply]</p>
-        </div>
+        <SectionHeading eyebrow="Our Partners" title="Businesses that already support SMILE." />
+        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">[Partner logos. Stephen to supply]</p>
         <div className="flex flex-wrap gap-8 justify-center items-center opacity-40">
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
