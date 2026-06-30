@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SectionLabel from "./SectionLabel";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -34,7 +33,13 @@ export default function PageHero({
   return (
     <section className={`py-16 md:py-24 ${bgClasses[bg]}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {eyebrow && <SectionLabel>{eyebrow}</SectionLabel>}
+        {eyebrow && (
+          <p className={`font-heading font-semibold text-sm uppercase tracking-widest mb-3 ${
+            isDark ? "text-yellow" : "text-black/60"
+          }`}>
+            {eyebrow}
+          </p>
+        )}
         <h1
           className={`font-heading text-4xl md:text-5xl font-bold ${titleColor} mb-4 max-w-2xl`}
         >

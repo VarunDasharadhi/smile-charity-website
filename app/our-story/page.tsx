@@ -91,6 +91,16 @@ export default function OurStoryPage() {
           ))}
         </div>
       </Section>
+
+      <CTABanner
+        heading="Want to support SMILE?"
+        subtext="Every donation helps us be there for families who need it most."
+        primaryLabel="Donate Now"
+        primaryHref="/donate"
+        secondaryLabel="Get Involved"
+        secondaryHref="/volunteer"
+        bg="yellow"
+      />
     </>
   );
 }

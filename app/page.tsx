@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
@@ -6,6 +7,16 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ProgressBar from "@/components/ProgressBar";
 import TestimonialCard from "@/components/TestimonialCard";
 import EventCard from "@/components/EventCard";
+
+export const metadata: Metadata = {
+  title: "SMILE Children's Charity | Supporting Families in Larkhall",
+  description: "SMILE Children's Charity SCIO supports seriously ill and disabled children and their families across Larkhall and South Lanarkshire. Donate, volunteer, or get involved.",
+  openGraph: {
+    title: "SMILE Children's Charity | Supporting Families in Larkhall",
+    description: "SMILE Children's Charity SCIO supports seriously ill and disabled children and their families across Larkhall and South Lanarkshire.",
+    type: "website",
+  },
+};
 
 const impactStats = [
   { value: "250+", label: "Families supported" },

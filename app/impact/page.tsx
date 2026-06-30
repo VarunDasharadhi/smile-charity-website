@@ -44,7 +44,7 @@ export default function ImpactPage() {
         bg="yellow"
       />
 
-      <Section bg="yellow">
+      <Section bg="white">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.slice(0, 4).map((s) => (
             <AnimatedCounter key={s.label} value={s.value} label={s.label} />
