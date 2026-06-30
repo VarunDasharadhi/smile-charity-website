@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import PhotoFrame from "@/components/PhotoFrame";
+import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -42,10 +44,7 @@ export default function AboutPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Our Mission</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              Why SMILE exists.
-            </h2>
+            <SectionHeading eyebrow="Our Mission" title="Why SMILE exists." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
               [Mission statement. Stephen to supply.]
             </p>
@@ -53,19 +52,14 @@ export default function AboutPage() {
               [Additional mission copy. Stephen to supply.]
             </p>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
-            [Team or charity photo. Stephen to supply]
-          </div>
+          <PhotoFrame alt="The SMILE team" placeholder="[Team or charity photo. Stephen to supply]" aspect="video" accentColor="yellow" />
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Our Values</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            What guides everything we do.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Our Values" title="What guides everything we do." />
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((v) => (
             <div key={v.title} className="bg-white rounded-2xl p-6 shadow-sm">
@@ -88,12 +82,7 @@ export default function AboutPage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>Our Team</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            The people behind SMILE.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Our Team" title="The people behind SMILE." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="text-center">

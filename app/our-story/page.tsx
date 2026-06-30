@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import PhotoFrame from "@/components/PhotoFrame";
+import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -33,14 +35,9 @@ export default function OurStoryPage() {
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center text-gray-400 text-sm italic">
-            [Justin and Charlotte photo. Stephen to supply]
-          </div>
+          <PhotoFrame alt="Justin and Charlotte, SMILE founders" placeholder="[Justin and Charlotte photo. Stephen to supply]" accentColor="teal" />
           <div>
-            <SectionLabel>How It Started</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              [Founding story heading. Stephen to supply]
-            </h2>
+            <SectionHeading eyebrow="How It Started" title="[Founding story heading. Stephen to supply]" centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
               [Justin and Charlotte founding story paragraph 1. Stephen to supply]
             </p>
@@ -51,13 +48,10 @@ export default function OurStoryPage() {
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Our Journey</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            From idea to impact.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Our Journey" title="From idea to impact." />
         <div className="relative max-w-2xl mx-auto">
           <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-yellow" />
           <div className="space-y-8">
@@ -85,9 +79,13 @@ export default function OurStoryPage() {
       <Section>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center text-gray-400 text-xs italic">
-              [Photo {i}. Stephen to supply]
-            </div>
+            <PhotoFrame
+              key={i}
+              alt={`SMILE moment ${i}`}
+              placeholder={`[Photo ${i}. Stephen to supply]`}
+              accentColor={i % 2 === 0 ? "teal" : "yellow"}
+              accentPosition={i % 2 === 0 ? "bottom-right" : "top-left"}
+            />
           ))}
         </div>
       </Section>
