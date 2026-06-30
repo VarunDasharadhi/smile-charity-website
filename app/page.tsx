@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import WaveDivider from "@/components/WaveDivider";
+import PhotoFrame from "@/components/PhotoFrame";
+import IconLinkRow from "@/components/IconLinkRow";
 import DonateButton from "@/components/DonateButton";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ProgressBar from "@/components/ProgressBar";
@@ -49,12 +53,47 @@ const events = [
   { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
 ];
 
-const ctaLinks = [
-  { label: "Donate Now", href: "/donate", primary: true },
-  { label: "Monthly Giving", href: "/donate", primary: false },
-  { label: "Fundraise", href: "/fundraising", primary: false },
-  { label: "Volunteer", href: "/volunteer", primary: false },
-  { label: "Corporate", href: "/corporate", primary: false },
+const quickLinks = [
+  {
+    label: "Donate",
+    href: "/donate",
+    tone: "yellow" as const,
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Fundraise",
+    href: "/fundraising",
+    tone: "teal" as const,
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 13l4 4L19 5" />
+      </svg>
+    ),
+  },
+  {
+    label: "Volunteer",
+    href: "/volunteer",
+    tone: "navy" as const,
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-4-4" />
+      </svg>
+    ),
+  },
+  {
+    label: "Corporate",
+    href: "/corporate",
+    tone: "yellow" as const,
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function HomePage() {
@@ -90,35 +129,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA strip */}
-      <section className="bg-yellow py-4 overflow-x-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-3 items-center min-w-max md:min-w-0 md:flex-wrap md:justify-center">
-            {ctaLinks.map((cta) => (
-              <Link
-                key={cta.label}
-                href={cta.href}
-                className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-bold transition-all ${
-                  cta.primary
-                    ? "bg-black text-white hover:bg-gray-800"
-                    : "text-black hover:underline"
-                }`}
-              >
-                {cta.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WaveDivider fromColor="#2E3245" toColor="#FFFFFF" />
+
+      {/* Quick links */}
+      <Section>
+        <IconLinkRow links={quickLinks} />
+      </Section>
 
       {/* Who we are */}
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Who We Are</SectionLabel>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-black mb-6">
-              Supporting families who need it most.
-            </h2>
+            <SectionHeading eyebrow="Who We Are" title="Supporting families who need it most." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               SMILE was started by people who know exactly how hard this can be.
               Families of children with serious illness or disability carry a weight most people never see.
@@ -132,38 +154,35 @@ export default function HomePage() {
               More about us
             </Link>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center text-gray-400 text-sm italic">
-            [Photo. Stephen to supply]
+          <PhotoFrame alt="Family supported by SMILE" placeholder="[Photo. Stephen to supply]" accentColor="yellow" />
+        </div>
+      </Section>
+
+      <WaveDivider fromColor="#FFFFFF" toColor="#2E3245" />
+
+      {/* Our Story */}
+      <Section bg="black">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="Our Story" title="Born from love. Built for families." dark />
+          <p className="text-gray-300 text-lg leading-relaxed mb-8 text-center">
+            [Justin and Charlotte&apos;s story. Stephen to supply the founding story and photos.]
+          </p>
+          <div className="text-center">
+            <Link
+              href="/our-story"
+              className="inline-block px-6 py-3 rounded-full border-2 border-teal text-teal font-bold hover:bg-teal hover:text-white transition-all"
+            >
+              Read Our Story
+            </Link>
           </div>
         </div>
       </Section>
 
-      {/* Our Story */}
-      <Section bg="black">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel>Our Story</SectionLabel>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
-            Born from love. Built for families.
-          </h2>
-          <p className="text-gray-300 text-lg leading-relaxed mb-8">
-            [Justin and Charlotte&apos;s story. Stephen to supply the founding story and photos.]
-          </p>
-          <Link
-            href="/our-story"
-            className="inline-block px-6 py-3 rounded-full border-2 border-teal text-teal font-bold hover:bg-teal hover:text-white transition-all"
-          >
-            Read Our Story
-          </Link>
-        </div>
-      </Section>
+      <WaveDivider fromColor="#2E3245" toColor="#FDD70E" />
 
       {/* Impact stats */}
       <Section bg="yellow">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-black">
-            The difference your support makes.
-          </h2>
-        </div>
+        <SectionHeading title="The difference your support makes." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {impactStats.map((stat) => (
             <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
@@ -178,6 +197,8 @@ export default function HomePage() {
           </Link>
         </div>
       </Section>
+
+      <WaveDivider fromColor="#FDD70E" toColor="#FFFFFF" />
 
       {/* SMILE House appeal */}
       <Section>
@@ -197,20 +218,21 @@ export default function HomePage() {
             </div>
             <DonateButton size="lg" label="Support SMILE House" />
           </div>
-          <div className="bg-gray-800 rounded-2xl aspect-video flex items-center justify-center text-gray-500 text-sm italic">
-            [SMILE House image. Stephen to supply]
-          </div>
+          <PhotoFrame
+            alt="SMILE House"
+            placeholder="[SMILE House image. Stephen to supply]"
+            aspect="video"
+            accentColor="teal"
+            accentPosition="bottom-right"
+          />
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
       {/* Family stories */}
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Family Stories</SectionLabel>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-black">
-            Stories from the families we support.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Family Stories" title="Stories from the families we support." />
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <TestimonialCard
@@ -231,10 +253,12 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFF8EE" toColor="#FFFFFF" />
+
       {/* Upcoming events */}
       <Section>
         <div className="flex items-end justify-between mb-8">
-          <h2 className="font-heading text-3xl font-bold text-black">Upcoming Events</h2>
+          <SectionHeading title="Upcoming Events" centered={false} />
           <Link
             href="/events"
             className="text-sm font-bold text-black underline underline-offset-4 hover:opacity-70"
@@ -256,12 +280,12 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
       {/* Corporate supporters */}
       <Section bg="gray">
-        <div className="text-center mb-10">
-          <h2 className="font-heading text-2xl font-bold text-black mb-2">Supported by</h2>
-          <p className="text-gray-500 text-sm">[Corporate supporter logos. Stephen to supply]</p>
-        </div>
+        <SectionHeading title="Supported by" />
+        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">[Corporate supporter logos. Stephen to supply]</p>
         <div className="flex flex-wrap gap-8 justify-center items-center opacity-40">
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
@@ -277,6 +301,8 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <WaveDivider fromColor="#FFF8EE" toColor="#FDD70E" />
+
       {/* Newsletter */}
       <Section bg="yellow">
         <div className="max-w-xl mx-auto text-center">
@@ -289,11 +315,11 @@ export default function HomePage() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 px-4 py-3 rounded-full border-2 border-black text-black placeholder:text-black/40 bg-white focus:outline-none focus:ring-2 focus:ring-black"
+              className="flex-1 px-4 py-3 rounded-full border-2 border-black text-black placeholder:text-black/40 bg-white shadow-[0_8px_20px_rgba(0,0,0,0.06)] focus:outline-none focus:ring-2 focus:ring-black"
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-full bg-black text-white font-bold hover:bg-gray-800 transition-colors"
+              className="px-6 py-3 rounded-full bg-black text-white font-bold hover:bg-gray-800 transition-colors shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
             >
               Subscribe
             </button>
