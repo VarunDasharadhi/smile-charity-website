@@ -9,17 +9,17 @@
 4. **Build** -- All 21 routes (16 pages + sitemap.xml + robots.txt + _not-found) generate clean, 0 TypeScript errors, across both plans' full commit history.
 
 ### Current state
-- `feat/site-quality-overhaul` branch merged into `main` (or ready to merge — see Next steps if not yet done).
-- Local only. No GitHub remote, no Vercel preview URL yet.
+- `feat/site-quality-overhaul` merged into `main` and pushed to GitHub: `https://github.com/VarunDasharadhi/smile-charity-website` (personal account for now -- transfer to a charity-owned account later, GitHub supports this without losing history).
+- Live preview deployed: **https://smile-charity-website.vercel.app** (Vercel project `team-viper/smile-charity-website`, connected to the GitHub repo -- future pushes to `main` auto-deploy).
 - All 16 routes are structured, visually polished pages with placeholder content in `[Square brackets]`. Real assets still pending Stephen.
 - Intentional stubs (pending Stephen sign-off): donate processor, shop type, contact form backend, Sanity CMS, GA4 property ID.
 
 ### Next steps
-1. Deploy a preview for Stephen (run `vercel` from CLI or push to a charity GitHub account and connect Vercel) so he can see the visual direction.
-2. Send Stephen the WhatsApp asset request (drafted in an earlier session): real logo vector, metrics/stats, photos, partner logos, font licensing confirmation.
-3. Once Stephen replies: wire real photos into the new `PhotoFrame`/`PageHero` image slots, fill in real stats, replace placeholder copy.
-4. Follow up on the 4 open questions from `prd.md` Section 11 (donation processor, shop type, contact form backend, Sanity CMS) before wiring any of those.
-5. Consider a follow-up accessibility pass on the new header dropdown (currently hover-only, no keyboard focus handling — flagged as non-blocking in the final review).
+1. Send Stephen the live preview link (https://smile-charity-website.vercel.app) plus the WhatsApp asset request (drafted in an earlier session): real logo vector, metrics/stats, photos, partner logos, font licensing confirmation.
+2. Once Stephen replies: wire real photos into the new `PhotoFrame`/`PageHero` image slots, fill in real stats, replace placeholder copy.
+3. Follow up on the 4 open questions from `prd.md` Section 11 (donation processor, shop type, contact form backend, Sanity CMS) before wiring any of those.
+4. Consider a follow-up accessibility pass on the new header dropdown (currently hover-only, no keyboard focus handling -- flagged as non-blocking in the final review).
+5. When the charity gets its own GitHub account, transfer repo ownership from the personal account.
 
 ### Gotchas
 - Two SDD ledgers exist side by side: `.superpowers/sdd/` (structural overhaul) and `.superpowers/sdd-organic/` (visual system) — both git-ignored scratch workspaces, kept separate to avoid task-number collisions between the two plans.

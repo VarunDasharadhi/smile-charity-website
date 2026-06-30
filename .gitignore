@@ -45,3 +45,5 @@ next-env.d.ts
 
 # superpowers scratch workspace (sdd ledger, brainstorm sessions)
 .superpowers/
+
+.vercel
