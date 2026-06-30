@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionLabel from "@/components/SectionLabel";
+import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -49,8 +50,8 @@ export default function ContactPage() {
                 <dd className="text-gray-600">[Opening hours. Stephen to supply]</dd>
               </div>
             </dl>
-            <div className="mt-8 bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
-              [Map or location image. Stephen to supply]
+            <div className="mt-8">
+              <PhotoFrame alt="SMILE office location" placeholder="[Map or location image. Stephen to supply]" aspect="video" accentColor="yellow" />
             </div>
           </div>
 
@@ -59,7 +60,7 @@ export default function ContactPage() {
             <h2 className="font-heading text-2xl font-bold text-black mb-8">
               Contact form coming soon.
             </h2>
-            <div className="bg-gray-50 rounded-2xl p-8 border-2 border-dashed border-gray-200 text-center">
+            <div className="bg-gray-50 rounded-3xl p-8 border-2 border-dashed border-gray-200 text-center">
               <p className="text-gray-500 text-sm italic mb-4">
                 The contact form is being set up. In the meantime, please reach us by phone or email above.
               </p>

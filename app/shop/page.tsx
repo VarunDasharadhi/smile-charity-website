@@ -33,11 +33,11 @@ export default function ShopPage() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 px-4 py-3 rounded-full border-2 border-black text-black placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-black"
+              className="flex-1 px-5 py-3 rounded-full border-2 border-black text-black placeholder:text-black/40 shadow-[0_8px_20px_rgba(0,0,0,0.06)] focus:outline-none focus:ring-2 focus:ring-yellow"
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-full bg-black text-white font-bold hover:bg-gray-800 transition-colors whitespace-nowrap"
+              className="px-6 py-3 rounded-full bg-black text-white font-bold hover:bg-gray-800 transition-colors whitespace-nowrap shadow-[0_8px_20px_rgba(0,0,0,0.15)]"
             >
               Notify me
             </button>

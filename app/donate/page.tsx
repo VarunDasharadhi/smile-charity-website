@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -35,13 +35,10 @@ export default function DonatePage() {
 
       <Section>
         <div className="max-w-xl mx-auto">
-          <SectionLabel>Choose an amount</SectionLabel>
-          <h2 className="font-heading text-2xl font-bold text-black mb-8">
-            How much would you like to give?
-          </h2>
+          <SectionHeading eyebrow="Choose an amount" title="How much would you like to give?" centered={false} />
 
           {/* Frequency toggle */}
-          <div className="flex gap-2 mb-8 p-1 bg-gray-100 rounded-full w-fit">
+          <div className="flex gap-2 mb-8 p-1 bg-gray-100 rounded-full w-fit shadow-inner">
             <button className="px-5 py-2 rounded-full bg-black text-white text-sm font-bold">
               One-off
             </button>
@@ -57,7 +54,7 @@ export default function DonatePage() {
                 key={a}
                 className={`py-4 rounded-2xl font-heading font-bold text-lg transition-all border-2 ${
                   a === "£25"
-                    ? "bg-yellow border-yellow text-black"
+                    ? "bg-yellow border-yellow text-black shadow-[0_12px_24px_rgba(253,215,14,0.3)]"
                     : "bg-white border-gray-200 text-black hover:border-yellow"
                 }`}
               >
@@ -67,7 +64,7 @@ export default function DonatePage() {
           </div>
 
           {/* Processor placeholder */}
-          <div className="bg-gray-50 rounded-2xl p-8 text-center border-2 border-dashed border-gray-200">
+          <div className="bg-gray-50 rounded-3xl p-8 text-center border-2 border-dashed border-gray-200">
             <p className="text-gray-500 text-sm italic">
               [Payment processor to be integrated. Stripe / PayPal Giving Fund / JustGiving — pending Stephen&apos;s confirmation]
             </p>
@@ -76,10 +73,7 @@ export default function DonatePage() {
       </Section>
 
       <Section bg="gray">
-        <div className="text-center mb-10">
-          <SectionLabel>Your Impact</SectionLabel>
-          <h2 className="font-heading text-2xl font-bold text-black">What your donation does.</h2>
-        </div>
+        <SectionHeading eyebrow="Your Impact" title="What your donation does." />
         <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {impact.map((i) => (
             <div key={i.amount} className="bg-white rounded-2xl p-6 shadow-sm flex gap-4 items-start">
