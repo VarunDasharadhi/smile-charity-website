@@ -42,3 +42,6 @@ next-env.d.ts
 
 # playwright mcp artifacts
 .playwright-mcp/
+
+# superpowers scratch workspace (sdd ledger, brainstorm sessions)
+.superpowers/
