@@ -1,12 +1,14 @@
 // app/fundraising/page.tsx
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Trophy, Cookie, PiggyBank, Globe, PartyPopper, Wallet } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
 import PhotoFrame from "@/components/PhotoFrame";
 import WaveDivider from "@/components/WaveDivider";
+import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "Fundraising",
@@ -19,12 +21,12 @@ export const metadata: Metadata = {
 };
 
 const ideas = [
-  { title: "Challenge events", description: "Sponsored runs, cycles, or swims. Pick a challenge and ask people to back you." },
-  { title: "Bake sales", description: "A classic for good reason. Easy to organise, hard to resist." },
-  { title: "Collections", description: "Set up a collection tin at your workplace, school, or local business." },
-  { title: "Online fundraising", description: "Create a fundraising page and share it with your network." },
-  { title: "Events", description: "Quiz nights, raffles, auctions — the more creative the better." },
-  { title: "Payroll giving", description: "Give a small amount each month directly from your pay, pre-tax." },
+  { title: "Challenge events", description: "Sponsored runs, cycles, or swims. Pick a challenge and ask people to back you.", icon: Trophy },
+  { title: "Bake sales", description: "A classic for good reason. Easy to organise, hard to resist.", icon: Cookie },
+  { title: "Collections", description: "Set up a collection tin at your workplace, school, or local business.", icon: PiggyBank },
+  { title: "Online fundraising", description: "Create a fundraising page and share it with your network.", icon: Globe },
+  { title: "Events", description: "Quiz nights, raffles, auctions, the more creative the better.", icon: PartyPopper },
+  { title: "Payroll giving", description: "Give a small amount each month directly from your pay, pre-tax.", icon: Wallet },
 ];
 
 export default function FundraisingPage() {
@@ -41,13 +43,15 @@ export default function FundraisingPage() {
 
       <Section>
         <SectionHeading eyebrow="How to Get Started" title="Pick an idea. We handle the rest." />
-        <div className="grid md:grid-cols-3 gap-6">
-          {ideas.map((idea) => (
-            <div key={idea.title} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-xl bg-yellow mb-4" />
-              <h3 className="font-heading font-bold text-black mb-2">{idea.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{idea.description}</p>
-            </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {ideas.map((idea, i) => (
+            <FeatureCard
+              key={idea.title}
+              icon={idea.icon}
+              title={idea.title}
+              description={idea.description}
+              delay={(i % 3) * 100}
+            />
           ))}
         </div>
       </Section>

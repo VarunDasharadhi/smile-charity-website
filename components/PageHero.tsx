@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhotoFrame from "./PhotoFrame";
+import Reveal from "./Reveal";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -36,7 +37,7 @@ export default function PageHero({
     : "bg-black text-white hover:bg-gray-800";
 
   const content = (
-    <div>
+    <Reveal>
       {eyebrow && (
         <p className={`font-heading font-semibold text-sm uppercase tracking-widest mb-3 ${
           isDark ? "text-yellow" : "text-black/60"
@@ -45,7 +46,7 @@ export default function PageHero({
         </p>
       )}
       <h1
-        className={`font-heading text-4xl md:text-5xl font-bold ${titleColor} mb-4 max-w-2xl`}
+        className={`font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] ${titleColor} mb-4 max-w-2xl`}
       >
         {title}
       </h1>
@@ -62,7 +63,7 @@ export default function PageHero({
           {ctaLabel}
         </Link>
       )}
-    </div>
+    </Reveal>
   );
 
   return (

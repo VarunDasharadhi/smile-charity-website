@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { Heart, Users, HandHeart } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
 import PhotoFrame from "@/components/PhotoFrame";
 import WaveDivider from "@/components/WaveDivider";
+import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -20,14 +22,17 @@ const values = [
   {
     title: "Family first",
     description: "Every decision we make starts with what is best for the families we serve.",
+    icon: Heart,
   },
   {
     title: "Community",
     description: "We build connections so no family ever feels isolated in what they are going through.",
+    icon: Users,
   },
   {
     title: "Compassion",
-    description: "We listen, we care, and we show up — because that is what families need most.",
+    description: "We listen, we care, and we show up, because that is what families need most.",
+    icon: HandHeart,
   },
 ];
 
@@ -61,12 +66,14 @@ export default function AboutPage() {
       <Section bg="gray">
         <SectionHeading eyebrow="Our Values" title="What guides everything we do." />
         <div className="grid md:grid-cols-3 gap-8">
-          {values.map((v) => (
-            <div key={v.title} className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-xl bg-yellow mb-4" />
-              <h3 className="font-heading font-bold text-black text-lg mb-2">{v.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
-            </div>
+          {values.map((v, i) => (
+            <FeatureCard
+              key={v.title}
+              icon={v.icon}
+              title={v.title}
+              description={v.description}
+              delay={i * 100}
+            />
           ))}
         </div>
       </Section>
@@ -83,7 +90,7 @@ export default function AboutPage() {
 
       <Section>
         <SectionHeading eyebrow="Our Team" title="The people behind SMILE." />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="text-center">
               <div className="w-full aspect-square bg-gray-100 rounded-2xl mb-3 flex items-center justify-center text-gray-400 text-sm italic">

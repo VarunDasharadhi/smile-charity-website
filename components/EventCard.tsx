@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "./Reveal";
 
 interface EventCardProps {
   day: string;
@@ -7,6 +8,7 @@ interface EventCardProps {
   location: string;
   description?: string;
   href: string;
+  delay?: number;
 }
 
 export default function EventCard({
@@ -16,8 +18,10 @@ export default function EventCard({
   location,
   description,
   href,
+  delay = 0,
 }: EventCardProps) {
   return (
+    <Reveal delay={delay}>
     <Link
       href={href}
       className="flex gap-4 p-5 border border-gray-100 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 group"
@@ -40,5 +44,6 @@ export default function EventCard({
         )}
       </div>
     </Link>
+    </Reveal>
   );
 }

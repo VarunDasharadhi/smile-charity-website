@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HeartHandshake, TrendingUp, Users, Building2 } from "lucide-react";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/SectionHeading";
@@ -58,41 +59,25 @@ const quickLinks = [
     label: "Donate",
     href: "/donate",
     tone: "yellow" as const,
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
+    icon: <HeartHandshake className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Fundraise",
     href: "/fundraising",
     tone: "teal" as const,
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 13l4 4L19 5" />
-      </svg>
-    ),
+    icon: <TrendingUp className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Volunteer",
     href: "/volunteer",
     tone: "navy" as const,
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-1.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a4 4 0 10-4-4" />
-      </svg>
-    ),
+    icon: <Users className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Corporate",
     href: "/corporate",
     tone: "yellow" as const,
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
+    icon: <Building2 className="w-9 h-9" strokeWidth={2} />,
   },
 ];
 
@@ -106,7 +91,7 @@ export default function HomePage() {
           [Hero image. Stephen to supply]
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <SectionLabel>SMILE Children&apos;s Charity</SectionLabel>
+          <SectionLabel dark>SMILE Children&apos;s Charity</SectionLabel>
           <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 max-w-3xl">
             Every child deserves to smile.
           </h1>
@@ -202,10 +187,10 @@ export default function HomePage() {
 
       {/* SMILE House appeal */}
       <Section>
-        <div className="bg-black rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-10 items-center">
+        <div className="bg-black rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Current Appeal</SectionLabel>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+            <SectionLabel dark>Current Appeal</SectionLabel>
+            <h2 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
               Help us build SMILE House.
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
@@ -240,10 +225,11 @@ export default function HomePage() {
               quote={t.quote}
               name={t.name}
               location={t.location}
+              delay={i * 100}
             />
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/families"
             className="font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity"
@@ -266,7 +252,7 @@ export default function HomePage() {
             See all events
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-8">
           {events.map((e, i) => (
             <EventCard
               key={i}
@@ -275,6 +261,7 @@ export default function HomePage() {
               title={e.title}
               location={e.location}
               href={e.href}
+              delay={i * 100}
             />
           ))}
         </div>
@@ -291,7 +278,7 @@ export default function HomePage() {
             <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/corporate"
             className="inline-block px-6 py-3 rounded-full border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-all"
@@ -306,7 +293,7 @@ export default function HomePage() {
       {/* Newsletter */}
       <Section bg="yellow">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="font-heading text-3xl font-bold text-black mb-4">Stay connected.</h2>
+          <h2 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-4">Stay connected.</h2>
           <p className="text-black/70 mb-8">
             Get updates from SMILE. News, events, and stories from the families we support.
             Nothing you didn&apos;t ask for.

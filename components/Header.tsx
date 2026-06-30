@@ -81,23 +81,36 @@ export default function Header() {
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+            <nav className="hidden lg:flex flex-1 items-center justify-center gap-10" aria-label="Main navigation">
               {navGroups.map((group) => (
                 <div
                   key={group.label}
-                  className="relative"
+                  className="relative group"
                   onMouseEnter={() => setOpenDropdown(group.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
-                    className="flex items-center gap-1 text-sm font-medium text-gray-800 hover:text-yellow-dark transition-colors py-2"
+                    className="relative flex items-center gap-1 text-base font-semibold text-black hover:text-yellow-dark transition-colors py-2"
                     aria-haspopup="true"
                     aria-expanded={openDropdown === group.label}
                   >
                     {group.label}
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                        openDropdown === group.label ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
+                    <span
+                      className={`absolute left-0 -bottom-0.5 h-0.5 bg-yellow rounded-full transition-all duration-300 ease-out ${
+                        openDropdown === group.label ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                      aria-hidden="true"
+                    />
                   </button>
                   <div
                     className={`absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.15)] border border-gray-100 py-2 transition-all ${
@@ -122,9 +135,13 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-gray-800 hover:text-yellow-dark transition-colors"
+                  className="group relative text-base font-semibold text-black hover:text-yellow-dark transition-colors py-2"
                 >
                   {link.label}
+                  <span
+                    className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-yellow rounded-full transition-all duration-300 ease-out group-hover:w-full"
+                    aria-hidden="true"
+                  />
                 </Link>
               ))}
             </nav>

@@ -1,9 +1,11 @@
 // app/family-support/page.tsx
 import type { Metadata } from "next";
+import { Home, CalendarHeart, HandCoins, Users } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Family Support",
@@ -20,21 +22,25 @@ const services = [
     title: "Respite breaks",
     description: "[Full description of respite provision. Stephen to supply]",
     eligibility: "[Eligibility criteria. Stephen to supply]",
+    icon: Home,
   },
   {
     title: "Family activities",
     description: "[Full description of family activities. Stephen to supply]",
     eligibility: "[Eligibility criteria. Stephen to supply]",
+    icon: CalendarHeart,
   },
   {
     title: "Financial grants",
     description: "[Full description of grant provision. Stephen to supply]",
     eligibility: "[Eligibility criteria. Stephen to supply]",
+    icon: HandCoins,
   },
   {
     title: "Community support",
     description: "[Full description of community support. Stephen to supply]",
     eligibility: "[Eligibility criteria. Stephen to supply]",
+    icon: Users,
   },
 ];
 
@@ -57,15 +63,19 @@ export default function FamilySupportPage() {
       <Section>
         <SectionHeading eyebrow="Our Services" title="What SMILE can provide." />
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((s) => (
-            <div key={s.title} className="border border-gray-100 rounded-2xl p-8">
-              <div className="w-10 h-10 rounded-xl bg-teal mb-4" />
-              <h3 className="font-heading font-bold text-black text-xl mb-3">{s.title}</h3>
-              <p className="text-gray-600 leading-relaxed mb-4">{s.description}</p>
-              <p className="text-sm text-gray-500 border-t border-gray-100 pt-4">
-                <span className="font-semibold text-black">Who can access this:</span> {s.eligibility}
-              </p>
-            </div>
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 100}>
+              <div className="group border border-gray-100 rounded-2xl p-8 h-full transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+                <span className="w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                  <s.icon className="w-7 h-7" strokeWidth={2} />
+                </span>
+                <h3 className="font-heading font-bold text-black text-xl mb-3">{s.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">{s.description}</p>
+                <p className="text-sm text-gray-500 border-t border-gray-100 pt-4">
+                  <span className="font-semibold text-black">Who can access this:</span> {s.eligibility}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Section>

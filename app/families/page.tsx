@@ -1,10 +1,12 @@
 // app/families/page.tsx
 import type { Metadata } from "next";
+import { Home, CalendarHeart, Users, HandCoins } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
+import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "Meet Our Families",
@@ -26,10 +28,10 @@ const families = [
 ];
 
 const whatWeOffer = [
-  { title: "Respite breaks", description: "[Description of respite provision. Stephen to supply]" },
-  { title: "Family activities", description: "[Description of activities. Stephen to supply]" },
-  { title: "Community support", description: "[Description of community programmes. Stephen to supply]" },
-  { title: "Practical grants", description: "[Description of grants. Stephen to supply]" },
+  { title: "Respite breaks", description: "[Description of respite provision. Stephen to supply]", icon: Home },
+  { title: "Family activities", description: "[Description of activities. Stephen to supply]", icon: CalendarHeart },
+  { title: "Community support", description: "[Description of community programmes. Stephen to supply]", icon: Users },
+  { title: "Practical grants", description: "[Description of grants. Stephen to supply]", icon: HandCoins },
 ];
 
 export default function FamiliesPage() {
@@ -44,13 +46,16 @@ export default function FamiliesPage() {
 
       <Section>
         <SectionHeading eyebrow="What We Offer" title="How SMILE supports your family." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {whatWeOffer.map((item) => (
-            <div key={item.title} className="border border-gray-100 rounded-2xl p-6">
-              <div className="w-10 h-10 rounded-xl bg-teal mb-4" />
-              <h3 className="font-heading font-bold text-black mb-2">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-            </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {whatWeOffer.map((item, i) => (
+            <FeatureCard
+              key={item.title}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+              tone="teal"
+              delay={i * 100}
+            />
           ))}
         </div>
       </Section>
@@ -69,7 +74,7 @@ export default function FamiliesPage() {
         <SectionHeading eyebrow="Family Stories" title="Hear from the families we support." />
         <div className="grid md:grid-cols-3 gap-8">
           {families.map((f, i) => (
-            <TestimonialCard key={i} quote={f.quote} name={f.name} location={f.location} />
+            <TestimonialCard key={i} quote={f.quote} name={f.name} location={f.location} delay={(i % 3) * 100} />
           ))}
         </div>
       </Section>

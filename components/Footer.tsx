@@ -57,6 +57,7 @@ export default function Footer() {
                 alt="SMILE Children's Charity"
                 width={140}
                 height={64}
+                unoptimized
                 className="h-10 w-auto"
               />
             </div>

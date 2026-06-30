@@ -1,11 +1,13 @@
 // components/TestimonialCard.tsx
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 interface TestimonialCardProps {
   quote: string;
   name: string;
   location?: string;
   avatarSrc?: string;
+  delay?: number;
 }
 
 export default function TestimonialCard({
@@ -13,6 +15,7 @@ export default function TestimonialCard({
   name,
   location,
   avatarSrc,
+  delay = 0,
 }: TestimonialCardProps) {
   const initials = name
     .split(" ")
@@ -22,7 +25,8 @@ export default function TestimonialCard({
     .toUpperCase();
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col">
+    <Reveal delay={delay} className="h-full">
+    <div className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col h-full transition-all hover:-translate-y-1 hover:shadow-[0_28px_50px_rgba(0,0,0,0.12)]">
       <span className="text-yellow font-heading text-5xl font-extrabold leading-none mb-4 select-none">
         &ldquo;
       </span>
@@ -51,5 +55,6 @@ export default function TestimonialCard({
         </div>
       </div>
     </div>
+    </Reveal>
   );
 }

@@ -1,11 +1,13 @@
 // app/impact/page.tsx
 import type { Metadata } from "next";
+import { Home, Users, HandCoins, CalendarHeart } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
 import WaveDivider from "@/components/WaveDivider";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "Our Impact",
@@ -29,10 +31,10 @@ const stats = [
 ];
 
 const services = [
-  { name: "Respite breaks", description: "[Impact of respite programme. Stephen to supply]" },
-  { name: "Family activities", description: "[Impact of activities programme. Stephen to supply]" },
-  { name: "Financial grants", description: "[Impact of grant programme. Stephen to supply]" },
-  { name: "Community events", description: "[Impact of community events. Stephen to supply]" },
+  { name: "Respite breaks", description: "[Impact of respite programme. Stephen to supply]", icon: Home },
+  { name: "Family activities", description: "[Impact of activities programme. Stephen to supply]", icon: CalendarHeart },
+  { name: "Financial grants", description: "[Impact of grant programme. Stephen to supply]", icon: HandCoins },
+  { name: "Community events", description: "[Impact of community events. Stephen to supply]", icon: Users },
 ];
 
 export default function ImpactPage() {
@@ -56,12 +58,14 @@ export default function ImpactPage() {
       <Section>
         <SectionHeading eyebrow="By Service" title="Where your support goes." />
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((s) => (
-            <div key={s.name} className="border border-gray-100 rounded-2xl p-8">
-              <div className="w-12 h-12 rounded-xl bg-yellow mb-4" />
-              <h3 className="font-heading font-bold text-black text-xl mb-3">{s.name}</h3>
-              <p className="text-gray-600 leading-relaxed">{s.description}</p>
-            </div>
+          {services.map((s, i) => (
+            <FeatureCard
+              key={s.name}
+              icon={s.icon}
+              title={s.name}
+              description={s.description}
+              delay={i * 100}
+            />
           ))}
         </div>
       </Section>

@@ -1,9 +1,11 @@
 // app/corporate/page.tsx
 import type { Metadata } from "next";
+import { Megaphone, Users, HeartHandshake, Award, CheckCircle2 } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
+import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "Corporate Partnerships",
@@ -16,10 +18,10 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  { title: "Brand association", description: "Align your brand with a trusted local charity making a real difference." },
-  { title: "Staff engagement", description: "Fundraising and volunteering opportunities that bring teams together." },
-  { title: "Community impact", description: "Show customers and stakeholders your commitment to the local community." },
-  { title: "Recognition", description: "Logo on our website, social media mentions, and event acknowledgements." },
+  { title: "Brand association", description: "Align your brand with a trusted local charity making a real difference.", icon: Megaphone },
+  { title: "Staff engagement", description: "Fundraising and volunteering opportunities that bring teams together.", icon: Users },
+  { title: "Community impact", description: "Show customers and stakeholders your commitment to the local community.", icon: HeartHandshake },
+  { title: "Recognition", description: "Logo on our website, social media mentions, and event acknowledgements.", icon: Award },
 ];
 
 const tiers = [
@@ -55,13 +57,15 @@ export default function CorporatePage() {
 
       <Section>
         <SectionHeading eyebrow="Why Partner With Us" title="Good for your business. Great for families." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((b) => (
-            <div key={b.title} className="border border-gray-100 rounded-2xl p-6">
-              <div className="w-10 h-10 rounded-xl bg-yellow mb-4" />
-              <h3 className="font-heading font-bold text-black mb-2">{b.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{b.description}</p>
-            </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {benefits.map((b, i) => (
+            <FeatureCard
+              key={b.title}
+              icon={b.icon}
+              title={b.title}
+              description={b.description}
+              delay={i * 100}
+            />
           ))}
         </div>
       </Section>
@@ -92,7 +96,7 @@ export default function CorporatePage() {
               <ul className="space-y-2 mb-8">
                 {t.perks.map((p) => (
                   <li key={p} className={`flex items-center gap-2 text-sm ${t.featured ? "text-gray-300" : "text-gray-600"}`}>
-                    <span className="text-yellow">+</span> {p}
+                    <CheckCircle2 className="w-4 h-4 text-yellow flex-shrink-0" strokeWidth={2} /> {p}
                   </li>
                 ))}
               </ul>

@@ -27,11 +27,11 @@ export default function IconLinkRow({ links }: IconLinkRowProps) {
           className="flex flex-col items-center gap-2 group"
         >
           <span
-            className={`w-16 h-16 rounded-full flex items-center justify-center shadow-[0_14px_30px_rgba(0,0,0,0.15)] transition-transform group-hover:-translate-y-1 ${toneClasses[link.tone]}`}
+            className={`w-20 h-20 rounded-full flex items-center justify-center shadow-[0_14px_30px_rgba(0,0,0,0.15)] transition-transform group-hover:-translate-y-1 group-hover:scale-105 ${toneClasses[link.tone]}`}
           >
             {link.icon}
           </span>
-          <span className="text-xs font-semibold text-black">{link.label}</span>
+          <span className="text-sm font-semibold text-black">{link.label}</span>
         </Link>
       ))}
     </div>

@@ -57,7 +57,7 @@ export default function SmileHousePage() {
 
       <Section bg="black">
         <div className="max-w-2xl mx-auto text-center">
-          <SectionLabel>Fundraising Progress</SectionLabel>
+          <SectionLabel dark>Fundraising Progress</SectionLabel>
           <h2 className="font-heading text-3xl font-bold text-white mb-8">
             Together we are building this.
           </h2>

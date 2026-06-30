@@ -37,7 +37,7 @@ export default function CTABanner({
   return (
     <section className={`py-12 ${bgClasses[bg]}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className={`font-heading text-2xl md:text-3xl font-bold ${textColor} mb-3`}>
+        <h2 className={`font-heading text-3xl md:text-4xl font-extrabold tracking-tight ${textColor} mb-3`}>
           {heading}
         </h2>
         {subtext && (
