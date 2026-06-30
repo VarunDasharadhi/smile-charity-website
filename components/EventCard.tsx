@@ -20,7 +20,7 @@ export default function EventCard({
   return (
     <Link
       href={href}
-      className="flex gap-4 p-5 border border-gray-100 rounded-2xl hover:shadow-md transition-all hover:-translate-y-0.5 group"
+      className="flex gap-4 p-5 border border-gray-100 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-0.5 group"
     >
       <div className="flex-shrink-0 w-14 h-14 bg-yellow rounded-xl flex flex-col items-center justify-center">
         <span className="font-heading font-extrabold text-black text-lg leading-none">

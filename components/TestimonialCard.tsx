@@ -22,7 +22,7 @@ export default function TestimonialCard({
     .toUpperCase();
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm flex flex-col">
+    <div className="bg-white rounded-2xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.08)] flex flex-col">
       <span className="text-yellow font-heading text-5xl font-extrabold leading-none mb-4 select-none">
         &ldquo;
       </span>
