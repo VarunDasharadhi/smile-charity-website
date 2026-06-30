@@ -1,31 +1,100 @@
+// app/fundraising/page.tsx
 import type { Metadata } from "next";
+import Link from "next/link";
 import Section from "@/components/Section";
-import DonateButton from "@/components/DonateButton";
+import PageHero from "@/components/PageHero";
+import CTABanner from "@/components/CTABanner";
+import SectionLabel from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Fundraising",
-  description: "Fundraise for SMILE Children's Charity. Ideas, resources, and everything you need to get started.",
+  description: "Fundraise for SMILE Children's Charity. Find ideas, get support, and make a difference.",
+  openGraph: {
+    title: "Fundraising | SMILE Children's Charity",
+    description: "Fundraise for SMILE and make a difference for families in Lanarkshire.",
+    type: "website",
+  },
 };
+
+const ideas = [
+  { title: "Challenge events", description: "Sponsored runs, cycles, or swims. Pick a challenge and ask people to back you." },
+  { title: "Bake sales", description: "A classic for good reason. Easy to organise, hard to resist." },
+  { title: "Collections", description: "Set up a collection tin at your workplace, school, or local business." },
+  { title: "Online fundraising", description: "Create a fundraising page and share it with your network." },
+  { title: "Events", description: "Quiz nights, raffles, auctions — the more creative the better." },
+  { title: "Payroll giving", description: "Give a small amount each month directly from your pay, pre-tax." },
+];
 
 export default function FundraisingPage() {
   return (
     <>
-      <Section bg="yellow">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-black mb-4">Fundraise for SMILE</h1>
-        <p className="text-black text-lg max-w-2xl">
-          Whether it&apos;s a sponsored run, a bake sale, or something completely your own,
-          every pound you raise helps a family in Lanarkshire.
-        </p>
-      </Section>
+      <PageHero
+        eyebrow="Fundraising"
+        title="Fundraise for SMILE."
+        subtitle="Every pound you raise goes directly to families who need it. We will support you every step of the way."
+        bg="yellow"
+        ctaLabel="Get Your Fundraising Pack"
+        ctaHref="/contact"
+      />
 
       <Section>
-        <p className="text-gray-600 text-center text-lg italic">
-          [Content coming soon. Fundraising ideas, downloadable resources, and how to register your fundraiser.]
-        </p>
-        <div className="mt-8 text-center">
-          <DonateButton size="md" label="Start Fundraising" />
+        <div className="text-center mb-12">
+          <SectionLabel>How to Get Started</SectionLabel>
+          <h2 className="font-heading text-3xl font-bold text-black">
+            Pick an idea. We handle the rest.
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {ideas.map((idea) => (
+            <div key={idea.title} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-yellow mb-4" />
+              <h3 className="font-heading font-bold text-black mb-2">{idea.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{idea.description}</p>
+            </div>
+          ))}
         </div>
       </Section>
+
+      <CTABanner
+        heading="Ready to get started?"
+        subtext="Contact us and we will send you a fundraising pack with everything you need."
+        primaryLabel="Get Your Pack"
+        primaryHref="/contact"
+        secondaryLabel="Donate Instead"
+        secondaryHref="/donate"
+        bg="teal"
+      />
+
+      <Section bg="gray">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <SectionLabel>Fundraising Pack</SectionLabel>
+            <h2 className="font-heading text-3xl font-bold text-black mb-6">
+              Everything you need in one place.
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              Our fundraising pack includes SMILE branding, collection sheets, poster templates,
+              and guidance on how to set up an online giving page. Everything you need to hit the ground running.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block px-6 py-3 rounded-full bg-black text-white font-bold hover:bg-gray-800 transition-all"
+            >
+              Request a Pack
+            </Link>
+          </div>
+          <div className="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
+            [Fundraising pack preview image. Stephen to supply]
+          </div>
+        </div>
+      </Section>
+
+      <CTABanner
+        heading="Can not fundraise right now? Donate directly."
+        primaryLabel="Donate Now"
+        primaryHref="/donate"
+        bg="yellow"
+      />
     </>
   );
 }
