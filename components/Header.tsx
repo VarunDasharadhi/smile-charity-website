@@ -6,22 +6,67 @@ import Image from "next/image";
 import DonateButton from "./DonateButton";
 import MobileNav from "./MobileNav";
 
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Our Story", href: "/our-story" },
-  { label: "Impact", href: "/impact" },
-  { label: "SMILE House", href: "/smile-house" },
+interface NavGroup {
+  label: string;
+  items: { label: string; href: string }[];
+}
+
+const navGroups: NavGroup[] = [
+  {
+    label: "About",
+    items: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Story", href: "/our-story" },
+      { label: "Our Impact", href: "/impact" },
+      { label: "Meet Our Families", href: "/families" },
+    ],
+  },
+  {
+    label: "Get Involved",
+    items: [
+      { label: "SMILE House", href: "/smile-house" },
+      { label: "Family Support", href: "/family-support" },
+      { label: "Fundraising", href: "/fundraising" },
+      { label: "Corporate Partnerships", href: "/corporate" },
+      { label: "Legacy Giving", href: "/legacy" },
+      { label: "Volunteer", href: "/volunteer" },
+    ],
+  },
+];
+
+const flatLinks = [
   { label: "Events", href: "/events" },
-  { label: "Fundraising", href: "/fundraising" },
-  { label: "Volunteer", href: "/volunteer" },
+  { label: "News", href: "/news" },
+  { label: "Shop", href: "/shop" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <>
+      <div className="hidden lg:block bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between text-xs">
+          <div className="flex items-center gap-5">
+            <span className="text-white/70">[Phone number. Stephen to supply]</span>
+            <span className="text-white/70">[Email address. Stephen to supply]</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Link href="https://facebook.com" className="text-white/70 hover:text-yellow transition-colors">
+              Facebook
+            </Link>
+            <Link href="https://instagram.com" className="text-white/70 hover:text-yellow transition-colors">
+              Instagram
+            </Link>
+            <Link href="https://linkedin.com" className="text-white/70 hover:text-yellow transition-colors">
+              LinkedIn
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -37,7 +82,43 @@ export default function Header() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
-              {navLinks.map((link) => (
+              {navGroups.map((group) => (
+                <div
+                  key={group.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenDropdown(group.label)}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <button
+                    className="flex items-center gap-1 text-sm font-medium text-gray-800 hover:text-yellow-dark transition-colors py-2"
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === group.label}
+                  >
+                    {group.label}
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.15)] border border-gray-100 py-2 transition-all ${
+                      openDropdown === group.label
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-50 hover:text-yellow-dark transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              {flatLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
