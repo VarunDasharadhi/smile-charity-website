@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import DonateButton from "./DonateButton";
+import WaveDivider from "./WaveDivider";
 
 const footerLinks = [
   {
@@ -42,6 +43,8 @@ export default function Footer() {
         </p>
         <DonateButton size="lg" />
       </div>
+
+      <WaveDivider fromColor="#FDD70E" toColor="#2E3245" />
 
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
