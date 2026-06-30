@@ -1,33 +1,104 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
+import PageHero from "@/components/PageHero";
+import CTABanner from "@/components/CTABanner";
+import SectionLabel from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Donate",
-  description: "Donate to SMILE Children's Charity. Every pound helps a family in Lanarkshire.",
+  description: "Donate to SMILE Children's Charity and support families across Lanarkshire.",
+  openGraph: {
+    title: "Donate | SMILE Children's Charity",
+    description: "Donate to SMILE and support families across Lanarkshire.",
+    type: "website",
+  },
 };
+
+const amounts = ["£5", "£10", "£25", "£50", "£100", "Other"];
+
+const impact = [
+  { amount: "£5", description: "Covers the cost of a craft activity for a family day." },
+  { amount: "£10", description: "Helps fund transport for a family to attend a SMILE event." },
+  { amount: "£25", description: "Contributes to a family respite break." },
+  { amount: "£100", description: "Funds a full day of activities for a family." },
+];
 
 export default function DonatePage() {
   return (
     <>
-      <Section bg="yellow">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-black mb-4">Make a Donation</h1>
-        <p className="text-black text-lg max-w-2xl">
-          Your donation goes directly to supporting families of children with disabilities and
-          serious illness across Lanarkshire. Every amount makes a difference.
-        </p>
-      </Section>
+      <PageHero
+        eyebrow="Donate"
+        title="Your donation changes lives."
+        subtitle="Every pound goes directly to supporting families of children with disabilities and serious illness across Lanarkshire."
+        bg="yellow"
+      />
 
       <Section>
-        <div className="max-w-xl mx-auto text-center">
-          <p className="text-gray-600 text-lg italic mb-6">
-            [Donation form coming soon. Payment processor to be confirmed with Stephen.
-            Will support one-off and monthly giving with Gift Aid declaration.]
-          </p>
-          <p className="text-sm text-gray-500">
-            SMILE Children&apos;s Charity SCIO. Registered charity SC053107
-          </p>
+        <div className="max-w-xl mx-auto">
+          <SectionLabel>Choose an amount</SectionLabel>
+          <h2 className="font-heading text-2xl font-bold text-black mb-8">
+            How much would you like to give?
+          </h2>
+
+          {/* Frequency toggle */}
+          <div className="flex gap-2 mb-8 p-1 bg-gray-100 rounded-full w-fit">
+            <button className="px-5 py-2 rounded-full bg-black text-white text-sm font-bold">
+              One-off
+            </button>
+            <button className="px-5 py-2 rounded-full text-gray-600 text-sm font-semibold hover:text-black transition-colors">
+              Monthly
+            </button>
+          </div>
+
+          {/* Amount grid */}
+          <div className="grid grid-cols-3 gap-3 mb-8">
+            {amounts.map((a) => (
+              <button
+                key={a}
+                className={`py-4 rounded-2xl font-heading font-bold text-lg transition-all border-2 ${
+                  a === "£25"
+                    ? "bg-yellow border-yellow text-black"
+                    : "bg-white border-gray-200 text-black hover:border-yellow"
+                }`}
+              >
+                {a}
+              </button>
+            ))}
+          </div>
+
+          {/* Processor placeholder */}
+          <div className="bg-gray-50 rounded-2xl p-8 text-center border-2 border-dashed border-gray-200">
+            <p className="text-gray-500 text-sm italic">
+              [Payment processor to be integrated. Stripe / PayPal Giving Fund / JustGiving — pending Stephen&apos;s confirmation]
+            </p>
+          </div>
         </div>
       </Section>
+
+      <Section bg="gray">
+        <div className="text-center mb-10">
+          <SectionLabel>Your Impact</SectionLabel>
+          <h2 className="font-heading text-2xl font-bold text-black">What your donation does.</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {impact.map((i) => (
+            <div key={i.amount} className="bg-white rounded-2xl p-6 shadow-sm flex gap-4 items-start">
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-yellow flex items-center justify-center font-heading font-extrabold text-black text-sm">
+                {i.amount}
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed pt-1">{i.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <CTABanner
+        heading="Prefer to fundraise?"
+        subtext="Set up your own fundraiser and get your friends and family involved."
+        primaryLabel="Start Fundraising"
+        primaryHref="/fundraising"
+        bg="navy"
+      />
     </>
   );
 }

@@ -1,52 +1,83 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
-import DonateButton from "@/components/DonateButton";
+import PageHero from "@/components/PageHero";
+import CTABanner from "@/components/CTABanner";
+import SectionLabel from "@/components/SectionLabel";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with SMILE Children's Charity. We'd love to hear from you.",
+  description: "Get in touch with SMILE Children's Charity.",
+  openGraph: {
+    title: "Contact | SMILE Children's Charity",
+    description: "Get in touch with SMILE Children's Charity.",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
-      <Section bg="yellow">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-black mb-4">Get in Touch</h1>
-        <p className="text-black text-lg max-w-2xl">
-          Whether you want to donate, volunteer, partner with us, or just find out more,
-          we&apos;d love to hear from you.
-        </p>
-      </Section>
+      <PageHero
+        eyebrow="Contact"
+        title="Get in touch."
+        subtitle="We would love to hear from you. Whether you have a question, want to volunteer, or need support for your family."
+        bg="white"
+      />
 
       <Section>
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="font-heading text-2xl font-bold mb-4">Our Shops</h2>
-            <div className="space-y-4 text-gray-600">
+            <SectionLabel>Our Details</SectionLabel>
+            <h2 className="font-heading text-2xl font-bold text-black mb-8">
+              Find us here.
+            </h2>
+            <dl className="space-y-6">
               <div>
-                <p className="font-semibold text-black">Larkhall</p>
-                <p>101 Union Street, Larkhall, ML9 1EB</p>
+                <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Address</dt>
+                <dd className="text-gray-600">101 Union Street<br />Larkhall<br />ML9 1EB</dd>
               </div>
               <div>
-                <p className="font-semibold text-black">Hamilton</p>
-                <p>[Address. Stephen to confirm]</p>
+                <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Phone</dt>
+                <dd className="text-gray-600">[Phone number. Stephen to supply]</dd>
               </div>
+              <div>
+                <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Email</dt>
+                <dd className="text-gray-600">[Email address. Stephen to supply]</dd>
+              </div>
+              <div>
+                <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Opening hours</dt>
+                <dd className="text-gray-600">[Opening hours. Stephen to supply]</dd>
+              </div>
+            </dl>
+            <div className="mt-8 bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-sm italic">
+              [Map or location image. Stephen to supply]
             </div>
-            <div className="mt-6">
-              <p className="text-gray-600 text-sm">
-                Email: <a href="mailto:smilechildrenscharity@gmail.com" className="text-blue hover:underline">smilechildrenscharity@gmail.com</a>
+          </div>
+
+          <div>
+            <SectionLabel>Send a Message</SectionLabel>
+            <h2 className="font-heading text-2xl font-bold text-black mb-8">
+              Contact form coming soon.
+            </h2>
+            <div className="bg-gray-50 rounded-2xl p-8 border-2 border-dashed border-gray-200 text-center">
+              <p className="text-gray-500 text-sm italic mb-4">
+                The contact form is being set up. In the meantime, please reach us by phone or email above.
+              </p>
+              <p className="text-gray-400 text-xs">
+                [Form backend to be configured — pending Stephen&apos;s sign-off]
               </p>
             </div>
           </div>
-          <div>
-            <h2 className="font-heading text-2xl font-bold mb-4">Send a Message</h2>
-            <p className="text-gray-600 italic text-sm mb-6">
-              [Contact form coming soon.]
-            </p>
-            <DonateButton size="md" />
-          </div>
         </div>
       </Section>
+
+      <CTABanner
+        heading="Registered charity SC053107"
+        subtext="SMILE Children's Charity SCIO is registered with the Office of the Scottish Charity Regulator."
+        primaryLabel="Donate Now"
+        primaryHref="/donate"
+        bg="navy"
+      />
     </>
   );
 }
