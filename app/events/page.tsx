@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import PhotoFrame from "@/components/PhotoFrame";
 import EventCard from "@/components/EventCard";
 
 export const metadata: Metadata = {
@@ -35,12 +36,7 @@ export default function EventsPage() {
       />
 
       <Section>
-        <div className="flex items-end justify-between mb-8">
-          <div>
-            <SectionLabel>Upcoming</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black">Events coming up.</h2>
-          </div>
-        </div>
+        <SectionHeading eyebrow="Upcoming" title="Events coming up." centered={false} />
         <div className="grid md:grid-cols-2 gap-4">
           {upcomingEvents.map((e, i) => (
             <EventCard
@@ -67,17 +63,17 @@ export default function EventsPage() {
       />
 
       <Section bg="gray">
-        <div className="text-center mb-8">
-          <SectionLabel>Past Events</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            What we have done together.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Past Events" title="What we have done together." />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-white rounded-2xl aspect-video flex items-center justify-center text-gray-400 text-xs italic shadow-sm">
-              [Past event photo {i}. Stephen to supply]
-            </div>
+            <PhotoFrame
+              key={i}
+              alt={`Past SMILE event ${i}`}
+              placeholder={`[Past event photo ${i}. Stephen to supply]`}
+              aspect="video"
+              accentColor={i % 2 === 0 ? "teal" : "yellow"}
+              accentPosition={i % 2 === 0 ? "bottom-right" : "top-left"}
+            />
           ))}
         </div>
       </Section>

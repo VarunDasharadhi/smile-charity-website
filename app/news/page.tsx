@@ -3,7 +3,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
   title: "News",
@@ -54,9 +54,7 @@ export default function NewsPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {articles.map((a, i) => (
             <Link key={i} href="/news" className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all">
-              <div className="bg-gray-100 aspect-video flex items-center justify-center text-gray-400 text-xs italic">
-                [Article image. Stephen to supply]
-              </div>
+              <PhotoFrame alt={a.title} placeholder="[Article image. Stephen to supply]" aspect="video" accentColor="yellow" />
               <div className="p-5">
                 <span className="inline-block px-3 py-1 rounded-full bg-yellow text-black text-xs font-bold mb-3">
                   {a.category}
