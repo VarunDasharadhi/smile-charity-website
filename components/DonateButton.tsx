@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface DonateButtonProps {
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "teal";
   label?: string;
 }
 
@@ -20,6 +20,7 @@ export default function DonateButton({
   const variantClasses = {
     primary: "bg-yellow text-black hover:bg-yellow-dark font-bold",
     outline: "border-2 border-yellow text-yellow hover:bg-yellow hover:text-black font-bold",
+    teal: "bg-teal text-white hover:bg-teal-dark font-bold",
   };
 
   return (
