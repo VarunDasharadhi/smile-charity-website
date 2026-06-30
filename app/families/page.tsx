@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
 
 export const metadata: Metadata = {
@@ -43,12 +43,7 @@ export default function FamiliesPage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>What We Offer</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            How SMILE supports your family.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="What We Offer" title="How SMILE supports your family." />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {whatWeOffer.map((item) => (
             <div key={item.title} className="border border-gray-100 rounded-2xl p-6">
@@ -71,12 +66,7 @@ export default function FamiliesPage() {
       />
 
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Family Stories</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Hear from the families we support.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Family Stories" title="Hear from the families we support." />
         <div className="grid md:grid-cols-3 gap-8">
           {families.map((f, i) => (
             <TestimonialCard key={i} quote={f.quote} name={f.name} location={f.location} />

@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import WaveDivider from "@/components/WaveDivider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
@@ -53,12 +54,7 @@ export default function ImpactPage() {
       </Section>
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>By Service</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Where your support goes.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="By Service" title="Where your support goes." />
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((s) => (
             <div key={s.name} className="border border-gray-100 rounded-2xl p-8">
@@ -69,6 +65,8 @@ export default function ImpactPage() {
           ))}
         </div>
       </Section>
+
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
 
       <Section bg="gray">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
