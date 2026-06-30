@@ -1,12 +1,41 @@
 import Link from "next/link";
-import DonateButton from "@/components/DonateButton";
 import Section from "@/components/Section";
+import SectionLabel from "@/components/SectionLabel";
+import DonateButton from "@/components/DonateButton";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import ProgressBar from "@/components/ProgressBar";
+import TestimonialCard from "@/components/TestimonialCard";
+import EventCard from "@/components/EventCard";
 
 const impactStats = [
-  { value: "?", label: "Families supported" },
-  { value: "?", label: "Events this year" },
-  { value: "?", label: "Volunteers" },
+  { value: "250+", label: "Families supported" },
+  { value: "40+", label: "Events this year" },
+  { value: "120+", label: "Volunteers" },
   { value: "?", label: "Raised for SMILE House" },
+];
+
+const testimonials = [
+  {
+    quote: "SMILE gave our family the break we so desperately needed. We finally felt like we weren't alone.",
+    name: "Family name",
+    location: "Lanarkshire",
+  },
+  {
+    quote: "The support we received changed everything. Our children got to just be children again.",
+    name: "Family name",
+    location: "Lanarkshire",
+  },
+  {
+    quote: "I didn't think anyone understood what we were going through. SMILE did. They still do.",
+    name: "Family name",
+    location: "Lanarkshire",
+  },
+];
+
+const events = [
+  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
+  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
+  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
 ];
 
 const ctaLinks = [
@@ -21,39 +50,44 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-black text-white min-h-[85vh] flex items-center">
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 flex items-center justify-center text-gray-700 text-sm italic pointer-events-none">
-          [Hero image placeholder. High-quality photo from Stephen]
+      <section className="relative bg-black text-white min-h-screen flex flex-col justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center text-gray-600 text-sm italic pointer-events-none select-none">
+          [Hero image. Stephen to supply]
         </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <p className="text-yellow font-heading font-semibold text-sm uppercase tracking-widest mb-4">
-            SMILE Children&apos;s Charity
-          </p>
+          <SectionLabel>SMILE Children&apos;s Charity</SectionLabel>
           <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 max-w-3xl">
             Every child deserves to smile.
           </h1>
-          <p className="text-gray-200 text-xl max-w-xl mb-10">
+          <p className="text-gray-200 text-xl max-w-xl mb-10 leading-relaxed">
             When your child is seriously ill or disabled, life can feel relentless.
-            SMILE is here for families across Lanarkshire. Real support. Real community. People who genuinely care.
+            SMILE is here for families across Lanarkshire. Real support. Real community.
+            People who genuinely care.
           </p>
           <div className="flex flex-wrap gap-4">
             <DonateButton size="lg" />
             <DonateButton size="lg" variant="outline" label="Become a Monthly Supporter" />
           </div>
         </div>
+        <div className="relative flex justify-center pb-8">
+          <div className="animate-bounce text-white/40" aria-hidden="true">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
       </section>
 
       {/* CTA strip */}
-      <section className="bg-yellow py-4">
+      <section className="bg-yellow py-4 overflow-x-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3 justify-center md:justify-between items-center">
+          <div className="flex gap-3 items-center min-w-max md:min-w-0 md:flex-wrap md:justify-center">
             {ctaLinks.map((cta) => (
               <Link
                 key={cta.label}
                 href={cta.href}
-                className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
+                className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-bold transition-all ${
                   cta.primary
                     ? "bg-black text-white hover:bg-gray-800"
                     : "text-black hover:underline"
@@ -70,9 +104,7 @@ export default function HomePage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-yellow font-heading font-semibold text-sm uppercase tracking-widest mb-3">
-              Who We Are
-            </p>
+            <SectionLabel>Who We Are</SectionLabel>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-black mb-6">
               Supporting families who need it most.
             </h2>
@@ -82,7 +114,10 @@ export default function HomePage() {
               We&apos;re here to lighten that load, even if just for a little while.
               Because no family should carry it alone.
             </p>
-            <Link href="/about" className="inline-block font-bold text-black underline underline-offset-4 hover:text-yellow-dark transition-colors">
+            <Link
+              href="/about"
+              className="inline-block font-bold text-black underline underline-offset-4 hover:text-yellow-dark transition-colors"
+            >
               More about us
             </Link>
           </div>
@@ -92,12 +127,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Justin & Charlotte story teaser */}
+      {/* Our Story */}
       <Section bg="black">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-yellow font-heading font-semibold text-sm uppercase tracking-widest mb-4">
-            Our Story
-          </p>
+          <SectionLabel>Our Story</SectionLabel>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
             Born from love. Built for families.
           </h2>
@@ -106,7 +139,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/our-story"
-            className="inline-block px-6 py-3 rounded-full border-2 border-yellow text-yellow font-bold hover:bg-yellow hover:text-black transition-all"
+            className="inline-block px-6 py-3 rounded-full border-2 border-teal text-teal font-bold hover:bg-teal hover:text-white transition-all"
           >
             Read Our Story
           </Link>
@@ -120,16 +153,16 @@ export default function HomePage() {
             The difference your support makes.
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {impactStats.map((stat) => (
-            <div key={stat.label}>
-              <p className="font-heading text-5xl font-extrabold text-black mb-2">{stat.value}</p>
-              <p className="text-black/70 font-medium text-sm">{stat.label}</p>
-            </div>
+            <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/impact" className="inline-block font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity">
+          <Link
+            href="/impact"
+            className="font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity"
+          >
             See our full impact
           </Link>
         </div>
@@ -139,72 +172,75 @@ export default function HomePage() {
       <Section>
         <div className="bg-black rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="text-yellow font-heading font-semibold text-sm uppercase tracking-widest mb-4">
-              Current Appeal
-            </p>
+            <SectionLabel>Current Appeal</SectionLabel>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
               Help us build SMILE House.
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
               SMILE House will give families a proper place to breathe.
               Somewhere to rest, recharge, and spend time with people who truly understand.
               We&apos;re building it together, and every donation brings it closer.
             </p>
+            <div className="mb-8">
+              <ProgressBar raised={null} target={null} />
+            </div>
             <DonateButton size="lg" label="Support SMILE House" />
           </div>
           <div className="bg-gray-800 rounded-2xl aspect-video flex items-center justify-center text-gray-500 text-sm italic">
-            [SMILE House campaign image. Stephen to supply]
+            [SMILE House image. Stephen to supply]
           </div>
         </div>
       </Section>
 
-      {/* Family testimonials */}
+      {/* Family stories */}
       <Section bg="gray">
         <div className="text-center mb-12">
-          <p className="text-yellow font-heading font-semibold text-sm uppercase tracking-widest mb-3">
-            Family Stories
-          </p>
+          <SectionLabel>Family Stories</SectionLabel>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-black">
             Stories from the families we support.
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-12 h-12 rounded-full bg-yellow mb-4 flex items-center justify-center text-black font-bold font-heading">
-                ?
-              </div>
-              <p className="text-gray-600 italic mb-4">
-                &ldquo;[Testimonial placeholder. Stephen to supply with family consent]&rdquo;
-              </p>
-              <p className="font-heading font-bold text-black text-sm">Family name</p>
-            </div>
+          {testimonials.map((t, i) => (
+            <TestimonialCard
+              key={i}
+              quote={t.quote}
+              name={t.name}
+              location={t.location}
+            />
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link href="/families" className="inline-block font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity">
+          <Link
+            href="/families"
+            className="font-bold text-black underline underline-offset-4 hover:opacity-70 transition-opacity"
+          >
             Meet more families
           </Link>
         </div>
       </Section>
 
-      {/* Upcoming events teaser */}
+      {/* Upcoming events */}
       <Section>
         <div className="flex items-end justify-between mb-8">
           <h2 className="font-heading text-3xl font-bold text-black">Upcoming Events</h2>
-          <Link href="/events" className="text-sm font-bold text-black underline underline-offset-4 hover:opacity-70">
+          <Link
+            href="/events"
+            className="text-sm font-bold text-black underline underline-offset-4 hover:opacity-70"
+          >
             See all events
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-lg bg-yellow flex items-center justify-center font-heading font-bold text-black text-xs mb-4">
-                TBC
-              </div>
-              <h3 className="font-heading font-bold text-black mb-2">[Event name. Stephen to supply]</h3>
-              <p className="text-gray-500 text-sm">[Date and location]</p>
-            </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          {events.map((e, i) => (
+            <EventCard
+              key={i}
+              day={e.day}
+              month={e.month}
+              title={e.title}
+              location={e.location}
+              href={e.href}
+            />
           ))}
         </div>
       </Section>
@@ -215,7 +251,7 @@ export default function HomePage() {
           <h2 className="font-heading text-2xl font-bold text-black mb-2">Supported by</h2>
           <p className="text-gray-500 text-sm">[Corporate supporter logos. Stephen to supply]</p>
         </div>
-        <div className="flex flex-wrap gap-8 justify-center items-center opacity-50">
+        <div className="flex flex-wrap gap-8 justify-center items-center opacity-40">
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
           ))}
@@ -230,12 +266,13 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Newsletter signup */}
+      {/* Newsletter */}
       <Section bg="yellow">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="font-heading text-3xl font-bold text-black mb-4">Stay connected.</h2>
           <p className="text-black/70 mb-8">
-            Get updates from SMILE. News, events, and stories from the families we support. Nothing you didn&apos;t ask for.
+            Get updates from SMILE. News, events, and stories from the families we support.
+            Nothing you didn&apos;t ask for.
           </p>
           <form className="flex gap-3 max-w-sm mx-auto">
             <input
