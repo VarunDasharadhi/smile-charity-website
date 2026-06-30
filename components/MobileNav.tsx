@@ -1,18 +1,41 @@
 // components/MobileNav.tsx
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import DonateButton from "./DonateButton";
 
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Our Story", href: "/our-story" },
-  { label: "Impact", href: "/impact" },
-  { label: "SMILE House", href: "/smile-house" },
-  { label: "Families", href: "/families" },
+interface NavGroup {
+  label: string;
+  items: { label: string; href: string }[];
+}
+
+const navGroups: NavGroup[] = [
+  {
+    label: "About",
+    items: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Story", href: "/our-story" },
+      { label: "Our Impact", href: "/impact" },
+      { label: "Meet Our Families", href: "/families" },
+    ],
+  },
+  {
+    label: "Get Involved",
+    items: [
+      { label: "SMILE House", href: "/smile-house" },
+      { label: "Family Support", href: "/family-support" },
+      { label: "Fundraising", href: "/fundraising" },
+      { label: "Corporate Partnerships", href: "/corporate" },
+      { label: "Legacy Giving", href: "/legacy" },
+      { label: "Volunteer", href: "/volunteer" },
+    ],
+  },
+];
+
+const flatLinks = [
   { label: "Events", href: "/events" },
-  { label: "Fundraising", href: "/fundraising" },
-  { label: "Volunteer", href: "/volunteer" },
+  { label: "News", href: "/news" },
+  { label: "Shop", href: "/shop" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -22,6 +45,8 @@ interface MobileNavProps {
 }
 
 export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -53,7 +78,41 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </div>
         <nav className="flex-1 overflow-y-auto p-4">
           <ul className="space-y-1">
-            {navLinks.map((link) => (
+            {navGroups.map((group) => (
+              <li key={group.label}>
+                <button
+                  onClick={() => setOpenGroup(openGroup === group.label ? null : group.label)}
+                  className="w-full flex items-center justify-between px-3 py-3 rounded-lg text-base font-medium text-gray-800 hover:bg-gray-50 transition-colors"
+                  aria-expanded={openGroup === group.label}
+                >
+                  {group.label}
+                  <svg
+                    className={`w-4 h-4 transition-transform ${openGroup === group.label ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openGroup === group.label && (
+                  <ul className="pl-4 space-y-1 mt-1">
+                    {group.items.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={onClose}
+                          className="block px-3 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:text-black transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+            {flatLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
