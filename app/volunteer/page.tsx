@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
+import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
   title: "Volunteer",
@@ -43,10 +44,7 @@ export default function VolunteerPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Why Volunteer</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              More than just giving time.
-            </h2>
+            <SectionHeading eyebrow="Why Volunteer" title="More than just giving time." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
               Volunteering with SMILE connects you to families doing something remarkable.
               You will meet people, build skills, and know that what you are doing genuinely matters.
@@ -55,19 +53,12 @@ export default function VolunteerPage() {
               [Additional volunteering copy. Stephen to supply]
             </p>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center text-gray-400 text-sm italic">
-            [Volunteer photo. Stephen to supply]
-          </div>
+          <PhotoFrame alt="SMILE volunteer" placeholder="[Volunteer photo. Stephen to supply]" accentColor="teal" />
         </div>
       </Section>
 
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>Volunteer Roles</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Find the right role for you.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="Volunteer Roles" title="Find the right role for you." />
         <div className="grid md:grid-cols-2 gap-6">
           {roles.map((r) => (
             <div key={r.title} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
@@ -92,12 +83,7 @@ export default function VolunteerPage() {
       />
 
       <Section>
-        <div className="text-center mb-12">
-          <SectionLabel>How to Apply</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Three simple steps.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="How to Apply" title="Three simple steps." />
         <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           {applySteps.map((s) => (
             <div key={s.step} className="text-center">

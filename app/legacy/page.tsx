@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
+import SectionHeading from "@/components/SectionHeading";
 import SectionLabel from "@/components/SectionLabel";
+import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
   title: "Legacy Giving",
@@ -46,10 +48,7 @@ export default function LegacyPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel>Why Leave a Legacy</SectionLabel>
-            <h2 className="font-heading text-3xl font-bold text-black mb-6">
-              A gift that outlasts us all.
-            </h2>
+            <SectionHeading eyebrow="Why Leave a Legacy" title="A gift that outlasts us all." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
               Legacy gifts are one of the most powerful ways to support SMILE.
               They allow us to plan for the future, invest in long-term projects like SMILE House,
@@ -59,19 +58,12 @@ export default function LegacyPage() {
               Every gift, however large or small, makes a difference. There is no minimum amount.
             </p>
           </div>
-          <div className="bg-gray-100 rounded-2xl aspect-square flex items-center justify-center text-gray-400 text-sm italic">
-            [Legacy section image. Stephen to supply]
-          </div>
+          <PhotoFrame alt="Legacy giving" placeholder="[Legacy section image. Stephen to supply]" accentColor="yellow" />
         </div>
       </Section>
 
       <Section bg="gray">
-        <div className="text-center mb-12">
-          <SectionLabel>How It Works</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-black">
-            Three simple steps.
-          </h2>
-        </div>
+        <SectionHeading eyebrow="How It Works" title="Three simple steps." />
         <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
           {steps.map((s) => (
             <div key={s.step} className="text-center">
