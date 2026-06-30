@@ -1,5 +1,30 @@
 # SMILE Children's Charity Website
 
+## Latest session (2026-06-30, late evening) — Structure overhaul + organic visual system, 38 commits, score 99/100
+
+### What was done
+1. **Structural overhaul (19 tasks, commits 5da495b..04b5c6b)** -- Component library (SectionLabel, AnimatedCounter, ProgressBar, TestimonialCard, EventCard, CTABanner, PageHero, MobileNav, teal DonateButton variant), full homepage rewrite, all 15 inner pages rebuilt with PageHero + 2 CTABanners + metadata, SEO layer (sitemap, robots, metadataBase). Whole-branch review scored 89/100, 4 fixes applied (eyebrow contrast, Impact double-yellow, Our Story missing CTA, homepage metadata), re-verified.
+2. **Organic visual system (17 tasks, commits c704be1..ceffbe7)** -- User felt the structurally-complete site still looked flat compared to the live site (smilechildrenscharity.com) and asked for more creative, interactive treatment. Compared 3 visual directions (Organic & Handcrafted, Bold & Editorial, Soft & Layered) via the brainstorming visual companion; user picked Organic & Handcrafted. Built 4 new components: `SectionHeading` (hand-drawn squiggle underline motif), `WaveDivider` (SVG curve seam between sections), `PhotoFrame` (rounded photo/placeholder frame with offset accent shape), `IconLinkRow` (circular quick-link badges). Added a utility bar + dropdown nav to `Header` (covers all 16 routes, up from 8), matching accordion groups in `MobileNav`, a wave seam in `Footer`, an optional image slot in `PageHero`, and deeper shadows on `TestimonialCard`/`EventCard`. Applied across the homepage and all 15 inner pages.
+3. **Final whole-branch review: 99/100** -- Every `WaveDivider` color pair verified against actual section backgrounds, squiggle/wave SVG paths confirmed single-source (no drift possible), Header/MobileNav route parity confirmed exact, no content altered outside the documented homepage CTA-strip-to-IconLinkRow swap. Zero Critical/Important findings.
+4. **Build** -- All 21 routes (16 pages + sitemap.xml + robots.txt + _not-found) generate clean, 0 TypeScript errors, across both plans' full commit history.
+
+### Current state
+- `feat/site-quality-overhaul` branch merged into `main` (or ready to merge — see Next steps if not yet done).
+- Local only. No GitHub remote, no Vercel preview URL yet.
+- All 16 routes are structured, visually polished pages with placeholder content in `[Square brackets]`. Real assets still pending Stephen.
+- Intentional stubs (pending Stephen sign-off): donate processor, shop type, contact form backend, Sanity CMS, GA4 property ID.
+
+### Next steps
+1. Deploy a preview for Stephen (run `vercel` from CLI or push to a charity GitHub account and connect Vercel) so he can see the visual direction.
+2. Send Stephen the WhatsApp asset request (drafted in an earlier session): real logo vector, metrics/stats, photos, partner logos, font licensing confirmation.
+3. Once Stephen replies: wire real photos into the new `PhotoFrame`/`PageHero` image slots, fill in real stats, replace placeholder copy.
+4. Follow up on the 4 open questions from `prd.md` Section 11 (donation processor, shop type, contact form backend, Sanity CMS) before wiring any of those.
+5. Consider a follow-up accessibility pass on the new header dropdown (currently hover-only, no keyboard focus handling — flagged as non-blocking in the final review).
+
+### Gotchas
+- Two SDD ledgers exist side by side: `.superpowers/sdd/` (structural overhaul) and `.superpowers/sdd-organic/` (visual system) — both git-ignored scratch workspaces, kept separate to avoid task-number collisions between the two plans.
+- `components/AnimatedCounter.tsx` and `hooks/useInView.ts` have a pre-existing lint issue (sync `setState` in `useEffect`, plus `exhaustive-deps` warnings) that predates both plans and was not introduced by either. Worth a follow-up cleanup, not urgent.
+
 ## Latest session (2026-06-30, evening) — Brand matched to real site, copy humanised
 
 ### What was done
