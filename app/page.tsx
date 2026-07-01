@@ -189,10 +189,7 @@ export default function HomePage() {
       <Section>
         <div className="bg-black rounded-3xl p-8 md:p-14 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <SectionLabel dark>Current Appeal</SectionLabel>
-            <h2 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
-              Help us build SMILE House.
-            </h2>
+            <SectionHeading eyebrow="Current Appeal" title="Help us build SMILE House." dark centered={false} />
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               SMILE House will give families a proper place to breathe.
               Somewhere to rest, recharge, and spend time with people who truly understand.
@@ -293,7 +290,7 @@ export default function HomePage() {
       {/* Newsletter */}
       <Section bg="yellow">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-4">Stay connected.</h2>
+          <SectionHeading title="Stay connected." />
           <p className="text-black/70 mb-8">
             Get updates from SMILE. News, events, and stories from the families we support.
             Nothing you didn&apos;t ask for.

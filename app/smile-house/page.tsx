@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
-import SectionLabel from "@/components/SectionLabel";
 import PhotoFrame from "@/components/PhotoFrame";
 import WaveDivider from "@/components/WaveDivider";
 import ProgressBar from "@/components/ProgressBar";
@@ -57,10 +56,7 @@ export default function SmileHousePage() {
 
       <Section bg="black">
         <div className="max-w-2xl mx-auto text-center">
-          <SectionLabel dark>Fundraising Progress</SectionLabel>
-          <h2 className="font-heading text-3xl font-bold text-white mb-8">
-            Together we are building this.
-          </h2>
+          <SectionHeading eyebrow="Fundraising Progress" title="Together we are building this." dark size="sm" />
           <ProgressBar raised={null} target={null} label="SMILE House Appeal" />
           <div className="mt-8">
             <DonateButton size="lg" label="Donate to SMILE House" />

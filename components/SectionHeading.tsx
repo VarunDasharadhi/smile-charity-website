@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   title: string;
   centered?: boolean;
   dark?: boolean;
+  size?: "lg" | "sm";
 }
 
 export default function SectionHeading({
@@ -13,22 +14,23 @@ export default function SectionHeading({
   title,
   centered = true,
   dark = false,
+  size = "lg",
 }: SectionHeadingProps) {
   return (
-    <Reveal className={`mb-12 ${centered ? "text-center" : ""}`}>
+    <Reveal className={`${size === "lg" ? "mb-12" : "mb-8"} ${centered ? "text-center" : ""}`}>
       {eyebrow && <SectionLabel dark={dark}>{eyebrow}</SectionLabel>}
       <h2
-        className={`font-heading text-4xl md:text-5xl font-extrabold tracking-tight inline-block ${
-          dark ? "text-white" : "text-black"
-        }`}
+        className={`font-heading font-extrabold tracking-tight inline-block ${
+          size === "lg" ? "text-4xl md:text-5xl" : "text-2xl md:text-3xl"
+        } ${dark ? "text-white" : "text-black"}`}
       >
         {title}
       </h2>
       <svg
-        width="190"
-        height="16"
+        width={size === "lg" ? 190 : 130}
+        height={size === "lg" ? 16 : 11}
         viewBox="0 0 190 16"
-        className={`block mt-3 ${centered ? "mx-auto" : ""}`}
+        className={`block ${size === "lg" ? "mt-3" : "mt-2"} ${centered ? "mx-auto" : ""}`}
         aria-hidden="true"
       >
         <path

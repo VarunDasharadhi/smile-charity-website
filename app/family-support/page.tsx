@@ -69,7 +69,13 @@ export default function FamilySupportPage() {
                 <span className="w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
                   <s.icon className="w-7 h-7" strokeWidth={2} />
                 </span>
-                <h3 className="font-heading font-bold text-black text-xl mb-3">{s.title}</h3>
+                <h3 className="relative inline-block font-heading font-bold text-black text-xl mb-3">
+                  {s.title}
+                  <span
+                    className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-yellow rounded-full transition-all duration-300 ease-out group-hover:w-full"
+                    aria-hidden="true"
+                  />
+                </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">{s.description}</p>
                 <p className="text-sm text-gray-500 border-t border-gray-100 pt-4">
                   <span className="font-semibold text-black">Who can access this:</span> {s.eligibility}

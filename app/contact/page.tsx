@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import SectionLabel from "@/components/SectionLabel";
+import SectionHeading from "@/components/SectionHeading";
 import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
@@ -28,10 +28,7 @@ export default function ContactPage() {
       <Section>
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <SectionLabel>Our Details</SectionLabel>
-            <h2 className="font-heading text-2xl font-bold text-black mb-8">
-              Find us here.
-            </h2>
+            <SectionHeading eyebrow="Our Details" title="Find us here." size="sm" centered={false} />
             <dl className="space-y-6">
               <div>
                 <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Address</dt>
@@ -56,10 +53,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <SectionLabel>Send a Message</SectionLabel>
-            <h2 className="font-heading text-2xl font-bold text-black mb-8">
-              Contact form coming soon.
-            </h2>
+            <SectionHeading eyebrow="Send a Message" title="Contact form coming soon." size="sm" centered={false} />
             <div className="bg-gray-50 rounded-3xl p-8 border-2 border-dashed border-gray-200 text-center">
               <p className="text-gray-500 text-sm italic mb-4">
                 The contact form is being set up. In the meantime, please reach us by phone or email above.

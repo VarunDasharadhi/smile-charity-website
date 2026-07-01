@@ -30,7 +30,13 @@ export default function FeatureCard({
         >
           <Icon className="w-7 h-7" strokeWidth={2} />
         </span>
-        <h3 className="font-heading font-bold text-black text-lg mb-2">{title}</h3>
+        <h3 className="relative inline-block font-heading font-bold text-black text-lg mb-2">
+          {title}
+          <span
+            className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-yellow rounded-full transition-all duration-300 ease-out group-hover:w-full"
+            aria-hidden="true"
+          />
+        </h3>
         <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
       </div>
     </Reveal>

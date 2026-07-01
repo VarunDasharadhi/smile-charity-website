@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
-import SectionLabel from "@/components/SectionLabel";
 import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
@@ -79,10 +78,7 @@ export default function LegacyPage() {
 
       <Section>
         <div className="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
-          <SectionLabel>Legal Information</SectionLabel>
-          <h3 className="font-heading font-bold text-black text-xl mb-4">
-            Details for your solicitor
-          </h3>
+          <SectionHeading eyebrow="Legal Information" title="Details for your solicitor" size="sm" centered={false} />
           <dl className="space-y-3 text-sm">
             <div className="flex gap-4">
               <dt className="font-semibold text-black min-w-[140px]">Full legal name</dt>
