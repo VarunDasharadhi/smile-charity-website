@@ -13,24 +13,30 @@ Free build (Varun's first consulting client). Stephen covers infrastructure only
 - **Next.js 16.2.9** — App Router, Turbopack. No `src/` dir.
 - **React 19.2.4**, TypeScript
 - **Tailwind v4** — CSS-based config only. Tokens live in the `@theme` block in `app/globals.css`. There is NO `tailwind.config.js`. Use `--color-*` and `--font-*` CSS vars for brand values; do not add a config file.
-- **Fonts** — `next/font/google`: Poppins (headings, CSS var `--font-poppins`) + Inter (body, CSS var `--font-inter`). Wired in `app/layout.tsx`.
+- **Fonts** — `next/font/google`: Jost (headings, CSS var `--font-jost`, closest free match to Futura) + Inter (body, CSS var `--font-inter`). Wired in `app/layout.tsx`. Poppins was swapped out for Jost after brand extraction; confirm with Stephen whether futura-pt is actually licensed for the domain.
 
 ---
 
 ## Brand Tokens (in `app/globals.css` @theme)
 
+Extracted directly from the live site (smilechildrenscharity.com) via DevTools, not invented:
+
 ```
---color-yellow:       #FFC300   (primary, backgrounds, CTAs)
---color-yellow-light: #FFD966
---color-yellow-dark:  #E6A800
---color-black:        #111111   (headings, dark sections)
+--color-yellow:       #FDD70E   (primary, backgrounds, CTAs)
+--color-yellow-light: #FFE45C
+--color-yellow-dark:  #E0B900
+--color-black:        #2E3245   (navy — headings, dark sections; not true black)
 --color-white:        #FFFFFF
+--color-blue:         #164194
+--color-blue-light:   #2E5BB8
+--color-blue-dark:    #0F2E6E
 --color-teal:         #14B8A6   (accent)
 --color-teal-light:   #5EEAD4
 --color-teal-dark:    #0F766E
---color-gray-50/100/600/800     (backgrounds, body text)
+--color-gray-50:      #FFF8EE   (cream)
+--color-gray-100/600/800        (backgrounds, body text)
 --font-sans:    var(--font-inter)
---font-heading: var(--font-poppins)
+--font-heading: var(--font-jost)
 ```
 
 Light theme only. No dark mode.
@@ -56,8 +62,8 @@ app/
   corporate/page.tsx
   legacy/page.tsx
   volunteer/page.tsx
-  shop/page.tsx        STUBBED — shop type not confirmed
-  donate/page.tsx      STUBBED — payment processor not confirmed
+  shop/page.tsx        Info page (confirmed) — structure built, real shop addresses/hours/marketplace links still pending
+  donate/page.tsx      STUBBED — processor accounts confirmed (Stripe/JustGiving/PayPal Giving Fund), primary not yet chosen
   contact/page.tsx
 
 components/
@@ -71,22 +77,22 @@ components/
 
 ## What Is Intentionally Stubbed
 
-These are gated on Stephen's answers to the 4 open questions (in `prd.md` Section 11):
+Stephen answered all 4 PRD Section 11 open questions on 2026-07-02 (full detail in the PRD and engagement tracker). Status now:
 
-- **Donation processor** — Stripe vs PayPal Giving Fund vs JustGiving. `donate/page.tsx` shows a placeholder form only.
-- **Shop** — info page vs e-commerce. `shop/page.tsx` is a placeholder.
-- **Contact form** — shows "coming soon." No backend wired.
-- **Sanity CMS** — schema sketched in the PRD but not installed or connected.
-- **Domain/DNS migration** — must confirm whether `@smilechildrenscharity.com` domain email is in use before repointing.
+- **Shop** — RESOLVED: informational page only (physical Larkhall/Hamilton shops + links out to eBay/Vinted/Depop resale), not e-commerce. `shop/page.tsx` is already rebuilt with this structure. Still pending from Stephen: real shop addresses/hours and the actual marketplace URLs (currently placeholders/`#`).
+- **Donation processor** — PARTIALLY RESOLVED: the charity holds its own registered accounts with Stripe, JustGiving, and PayPal Giving Fund (not locked into Charity Hive). Stephen has not named a primary for the new Donate page yet, so `donate/page.tsx` correctly still shows a placeholder pending that choice.
+- **Domain/DNS migration** — UNBLOCKED IN PRINCIPLE: no email currently exists on `@smilechildrenscharity.com` (they use Gmail), so there's no live mailbox to protect during the repoint. They want Google Workspace for Nonprofits set up fresh. The actual DNS repoint itself hasn't happened yet — site is still only on the Vercel preview URL.
+- **Contact form** — still fully gated. No backend wired, not addressed by Stephen's answers.
+- **Sanity CMS** — still fully gated. Not part of the original 4 questions.
 - **Real content** — all copy, photos, and testimonials are clearly labelled placeholders. Stephen supplies these.
 
-Do NOT wire any of the above until Stephen's sign-off and question answers are in.
+Do NOT wire the donation processor, contact form backend, Sanity CMS, or do the real DNS repoint without an explicit go-ahead from Stephen/Varun. Safe to fill in real shop data once Stephen supplies it.
 
 ---
 
 ## Git Status
 
-Local only. No GitHub remote. The `c:\Users\varun\repos\` directory has a stray git repo at its root (old uk-immigration-compass history), so this site currently has no git repo of its own. Before doing any commit work here, run `git init` inside this folder to create an isolated repo. When setting up a remote, use a GitHub account in the charity's name, not Varun's personal account.
+Own git repo (isolated from the stray repo at the `c:\Users\varun\repos\` root), on branch `main`, pushed to GitHub at `github.com/VarunDasharadhi/smile-charity-website` — currently Varun's personal account, to be transferred to a charity-owned GitHub account once Stephen sets one up. Connected to Vercel (`team-viper/smile-charity-website`); pushes to `main` auto-deploy to the live preview at `smile-charity-website.vercel.app`. The real domain has not been repointed yet.
 
 ---
 
