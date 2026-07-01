@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   centered?: boolean;
   dark?: boolean;
   size?: "lg" | "sm";
+  accent?: "yellow" | "navy";
 }
 
 export default function SectionHeading({
@@ -15,6 +16,7 @@ export default function SectionHeading({
   centered = true,
   dark = false,
   size = "lg",
+  accent = "yellow",
 }: SectionHeadingProps) {
   return (
     <Reveal className={`${size === "lg" ? "mb-12" : "mb-8"} ${centered ? "text-center" : ""}`}>
@@ -35,7 +37,7 @@ export default function SectionHeading({
       >
         <path
           d="M4 10 Q 34 1, 62 9 T 118 9 T 186 5"
-          stroke="#FDD70E"
+          stroke={accent === "navy" ? "#2E3245" : "#FDD70E"}
           strokeWidth="4"
           fill="none"
           strokeLinecap="round"

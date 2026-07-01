@@ -167,7 +167,7 @@ export default function HomePage() {
 
       {/* Impact stats */}
       <Section bg="yellow">
-        <SectionHeading title="The difference your support makes." />
+        <SectionHeading title="The difference your support makes." accent="navy" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {impactStats.map((stat) => (
             <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
@@ -290,7 +290,7 @@ export default function HomePage() {
       {/* Newsletter */}
       <Section bg="yellow">
         <div className="max-w-xl mx-auto text-center">
-          <SectionHeading title="Stay connected." />
+          <SectionHeading title="Stay connected." accent="navy" />
           <p className="text-black/70 mb-8">
             Get updates from SMILE. News, events, and stories from the families we support.
             Nothing you didn&apos;t ask for.
