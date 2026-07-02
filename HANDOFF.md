@@ -1,5 +1,33 @@
 # SMILE Children's Charity Website
 
+## Latest session (2026-07-02, night) — Steph's answers actioned + full real-content pass from public sources, 15 commits
+
+### What was done
+1. **Steph answered all 4 PRD open questions** (shop type, recurring donors, domain email, donation processor). CLAUDE.md synced to match, including two other stale sections found in the same pass (brand tokens still showed invented colors/Poppins, git status said "no remote"). Commit `c7049ac`. Answers also captured in auto-memory and the engagement tracker.
+2. **Shop page rebuilt as confirmed info page** -- Larkhall (real address 101 Union Street, Tue-Sat from 10am) + Hamilton (a NEW branch not on the old site yet, placeholder details), eBay/Vinted/Depop buttons with real brand logos, "Get directions" Google Maps button. Commits `36f2c45`, `34b0dda`, `2da2415`, `af7465e`.
+3. **Fabricated content caught and fixed** -- "Justin and Charlotte" as co-founders was invented (real story: founded Feb 2024 by Wendy and Stephen Meek in memory of son Justin; Charlotte is their daughter with complex needs, not a founder). Also removed an invented Hamilton shop (then restored when Varun confirmed it is real, just new), impossible "10+ years" stat, unsourced 250+/40+/120+ numbers, and 4 invented service categories. Commits `dbd734d`, `3fa25c6`, `69b4642`.
+4. **Full real-content pass from public sources** -- everything findable on smilechildrenscharity.com pulled in: real contact info (01698 642411, gmail), all 6 news articles with matched images, real events (4 Kiltwalks 2026 with dates, Race Night, Pantomime), real partners (Rocca Hamilton, Co-op, National Lottery Community Fund) with logos and linked cards, full 8-trustee team with 6 photos, Kenny McLean ambassador section, full Canderavon/SMILE House detail, real founding-story milestones, real social links (Facebook URL was broken on their own site, found the real page via search; LinkedIn does not exist, replaced with X).
+5. **Visual/interactive upgrades** -- icon-based top utility bar (clickable tel:/mailto:, brand-colored circular social icons), real hero image, live embedded Google Map on Contact, animated nav underlines, SectionHeading accent prop fixing an invisible yellow-on-yellow squiggle, placeholder stats restored as presentable "illustrative figures" with a visible disclaimer note.
+6. **AnimatedCounter comma bug found** -- values like "£30,000+" render as "£30,000,000+" (suffix parsing finds first digit match, not last). Worked around with "£30k+"; component fix still pending.
+7. **WhatsApp message for Steph drafted and refined** (final version in session transcript): preview link, Stripe vs PayPal Giving Fund question, eBay/Vinted/Depop existence check, Hamilton address ask, real-numbers ask, and a gentle check that the boy photo used in Our Story is actually Justin.
+
+### Current state
+- All 15 commits pushed to GitHub (`c02e0ee..302f4c5`), Vercel auto-deploying to https://smile-charity-website.vercel.app.
+- Site now carries real content everywhere it publicly exists; placeholders remain only for things genuinely unavailable (family stories needing consent, Hamilton shop details, sponsorship tier amounts, marketplace URLs, some photos, real stats).
+- Still gated pending Stephen: donation processor choice (accounts exist for Stripe/JustGiving/PayPal Giving Fund, no primary picked), contact form backend, Sanity CMS, DNS repoint.
+- WhatsApp message ready to send, not yet sent.
+
+### Next steps
+1. Varun sends the WhatsApp message to Steph (includes the sensitive Justin-photo confirmation, do not skip that check).
+2. On Steph's reply: wire the chosen donate processor decision into planning (PRD recommends PayPal Giving Fund primary, Stripe fallback), fill Hamilton shop details, marketplace URLs, real stats.
+3. Fix AnimatedCounter comma parsing properly (suffix should anchor to the last digit, not first match).
+4. Consider reserving the boy's photo for Our Story only (currently also on homepage Who-we-are) once Stephen confirms identity and sends more photos.
+5. Accessibility pass on header dropdown (hover-only) still outstanding from the previous session.
+
+### Gotchas
+- The Hamilton shop is real but NOT on the old site anywhere, a future "verify against the live site" pass will wrongly flag it as fabricated (this nearly happened). Recorded in auto-memory too.
+- The boy photo in Our Story (`about-charity.jpg`) is believed to be Justin because the live About page pairs it with the founding story, but it is never explicitly captioned. Confirm with Stephen before public launch.
+
 ## Latest session (2026-06-30, late evening) — Structure overhaul + organic visual system, 38 commits, score 99/100
 
 ### What was done
