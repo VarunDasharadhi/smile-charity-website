@@ -1,6 +1,7 @@
 // app/family-support/page.tsx
 import type { Metadata } from "next";
-import { HeartPulse, Sun } from "lucide-react";
+import Image from "next/image";
+import { HeartPulse, Sun, Mail } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
@@ -20,14 +21,20 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Holistic Therapy Treatments",
+    image: "/images/service-holistic-therapy.jpg",
     description: "Free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, held at Hilary's House of Calm and funded by the Community Health and Wellbeing Fund, managed by Voluntary Action South Lanarkshire. These sessions support your mental, emotional, and physical wellbeing, helping you manage stress, build emotional resilience, and take time for yourself.",
-    eligibility: "Unpaid carers of a child with a serious illness or disability in Lanarkshire. Email smilechildrenscharity@gmail.com to register your interest.",
+    eligibility: "Unpaid carers of a child with a serious illness or disability in Lanarkshire.",
+    howToAccess: "Email smilechildrenscharity@gmail.com to register your interest.",
+    funder: "Funded by the Community Health and Wellbeing Fund",
     icon: HeartPulse,
   },
   {
     title: "Family Days Out",
+    image: "/images/family-days-out.jpg",
     description: "Organised trips offering families a day full of adventure, laughter, and relaxation. Our annual Blair Drummond Safari Park day out took 150 people last year, and another trip is planned for 2026, with the date to be announced soon.",
-    eligibility: "Families of children with serious illness or disabilities supported by SMILE. Keep an eye on our News page for upcoming dates.",
+    eligibility: "Families of children with serious illness or disabilities supported by SMILE.",
+    howToAccess: "Keep an eye on our News page for upcoming dates.",
+    funder: null,
     icon: Sun,
   },
 ];
@@ -53,21 +60,43 @@ export default function FamilySupportPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 100}>
-              <div className="group border border-gray-100 rounded-2xl p-8 h-full transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
-                <span className="w-14 h-14 rounded-2xl bg-teal text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
-                  <s.icon className="w-7 h-7" strokeWidth={2} />
-                </span>
-                <h3 className="relative inline-block font-heading font-bold text-black text-xl mb-3">
-                  {s.title}
-                  <span
-                    className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-yellow rounded-full transition-all duration-300 ease-out group-hover:w-full"
-                    aria-hidden="true"
+              <div className="group border border-gray-100 rounded-2xl overflow-hidden h-full transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+                <div className="relative aspect-video">
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
                   />
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{s.description}</p>
-                <p className="text-sm text-gray-500 border-t border-gray-100 pt-4">
-                  <span className="font-semibold text-black">Who can access this:</span> {s.eligibility}
-                </p>
+                  <span className="absolute bottom-3 left-3 w-12 h-12 rounded-2xl bg-teal text-white flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                    <s.icon className="w-6 h-6" strokeWidth={2} />
+                  </span>
+                </div>
+                <div className="p-8">
+                  <h3 className="relative inline-block font-heading font-bold text-black text-xl mb-3">
+                    {s.title}
+                    <span
+                      className="absolute left-0 -bottom-0.5 h-0.5 w-0 bg-yellow rounded-full transition-all duration-300 ease-out group-hover:w-full"
+                      aria-hidden="true"
+                    />
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">{s.description}</p>
+                  {s.funder && (
+                    <span className="inline-block px-3 py-1 rounded-full bg-teal/10 text-teal text-xs font-semibold mb-4">
+                      {s.funder}
+                    </span>
+                  )}
+                  <div className="border-t border-gray-100 pt-4 space-y-2">
+                    <p className="text-sm text-gray-500">
+                      <span className="font-semibold text-black">Who can access this:</span> {s.eligibility}
+                    </p>
+                    <p className="flex items-start gap-2 text-sm text-gray-500">
+                      <Mail className="w-4 h-4 mt-0.5 shrink-0 text-teal" strokeWidth={2} />
+                      {s.howToAccess}
+                    </p>
+                  </div>
+                </div>
               </div>
             </Reveal>
           ))}
