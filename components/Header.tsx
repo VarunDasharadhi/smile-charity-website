@@ -54,14 +54,14 @@ export default function Header() {
             <span className="text-white/70">smilechildrenscharity@gmail.com</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="https://facebook.com" className="text-white/70 hover:text-yellow transition-colors">
+            <Link href="https://www.facebook.com/SMILE%20Children%E2%80%99s%20Charity" className="text-white/70 hover:text-yellow transition-colors">
               Facebook
             </Link>
-            <Link href="https://instagram.com" className="text-white/70 hover:text-yellow transition-colors">
+            <Link href="https://www.instagram.com/smilechildrenscharity" className="text-white/70 hover:text-yellow transition-colors">
               Instagram
             </Link>
-            <Link href="https://linkedin.com" className="text-white/70 hover:text-yellow transition-colors">
-              LinkedIn
+            <Link href="https://www.twitter.com/smilechildrens" className="text-white/70 hover:text-yellow transition-colors">
+              X
             </Link>
           </div>
         </div>

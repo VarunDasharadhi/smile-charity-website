@@ -98,9 +98,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} SMILE Children&apos;s Charity SCIO. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <Link href="https://facebook.com" className="text-gray-500 hover:text-yellow transition-colors text-sm">Facebook</Link>
-            <Link href="https://instagram.com" className="text-gray-500 hover:text-yellow transition-colors text-sm">Instagram</Link>
-            <Link href="https://linkedin.com" className="text-gray-500 hover:text-yellow transition-colors text-sm">LinkedIn</Link>
+            <Link href="https://www.facebook.com/SMILE%20Children%E2%80%99s%20Charity" className="text-gray-500 hover:text-yellow transition-colors text-sm">Facebook</Link>
+            <Link href="https://www.instagram.com/smilechildrenscharity" className="text-gray-500 hover:text-yellow transition-colors text-sm">Instagram</Link>
+            <Link href="https://www.twitter.com/smilechildrens" className="text-gray-500 hover:text-yellow transition-colors text-sm">X</Link>
           </div>
         </div>
       </div>
