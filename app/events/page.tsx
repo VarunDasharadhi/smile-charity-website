@@ -30,7 +30,13 @@ export default function EventsPage() {
     <>
       <PageHero
         eyebrow="Events"
-        title="Get involved. Have fun. Make a difference."
+        title={
+          <>
+            Get involved. Have fun.
+            <br />
+            Make a difference.
+          </>
+        }
         subtitle="From charity runs to bake sales, every SMILE event raises money and brings people together."
         bg="yellow"
       />

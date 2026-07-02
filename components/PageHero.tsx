@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 interface PageHeroProps {
   eyebrow?: string;
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -46,12 +46,12 @@ export default function PageHero({
         </p>
       )}
       <h1
-        className={`font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] ${titleColor} mb-4 max-w-2xl`}
+        className={`font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-balance ${titleColor} mb-4 max-w-5xl`}
       >
         {title}
       </h1>
       {subtitle && (
-        <p className={`${subtitleColor} text-lg max-w-xl${ctaLabel ? " mb-8" : ""}`}>
+        <p className={`${subtitleColor} text-lg text-pretty max-w-3xl${ctaLabel ? " mb-8" : ""}`}>
           {subtitle}
         </p>
       )}
@@ -72,7 +72,11 @@ export default function PageHero({
         {imageSrc ? (
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {content}
-            <PhotoFrame src={imageSrc} alt={imageAlt ?? title} accentColor={isDark ? "yellow" : "teal"} />
+            <PhotoFrame
+              src={imageSrc}
+              alt={imageAlt ?? (typeof title === "string" ? title : "")}
+              accentColor={isDark ? "yellow" : "teal"}
+            />
           </div>
         ) : (
           content

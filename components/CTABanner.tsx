@@ -37,11 +37,11 @@ export default function CTABanner({
   return (
     <section className={`py-12 ${bgClasses[bg]}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className={`font-heading text-3xl md:text-4xl font-extrabold tracking-tight ${textColor} mb-3`}>
+        <h2 className={`font-heading text-3xl md:text-4xl font-extrabold tracking-tight text-balance ${textColor} mb-3`}>
           {heading}
         </h2>
         {subtext && (
-          <p className={`${subtextColor} mb-8 max-w-xl mx-auto`}>{subtext}</p>
+          <p className={`${subtextColor} mb-8 max-w-2xl mx-auto text-pretty`}>{subtext}</p>
         )}
         <div className="flex flex-wrap gap-4 justify-center">
           <Link

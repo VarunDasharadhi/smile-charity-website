@@ -99,10 +99,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <SectionLabel dark>SMILE Children&apos;s Charity</SectionLabel>
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 max-w-3xl">
+          <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white leading-tight text-balance mb-6 max-w-4xl">
             Every child deserves to smile.
           </h1>
-          <p className="text-gray-200 text-xl max-w-xl mb-10 leading-relaxed">
+          <p className="text-gray-200 text-xl max-w-2xl mb-10 leading-relaxed text-pretty">
             When your child is seriously ill or disabled, life can feel relentless.
             SMILE is here for families across Lanarkshire. Real support. Real community.
             People who genuinely care.

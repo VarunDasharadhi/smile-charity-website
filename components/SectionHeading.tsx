@@ -22,7 +22,7 @@ export default function SectionHeading({
     <Reveal className={`${size === "lg" ? "mb-12" : "mb-8"} ${centered ? "text-center" : ""}`}>
       {eyebrow && <SectionLabel dark={dark}>{eyebrow}</SectionLabel>}
       <h2
-        className={`font-heading font-extrabold tracking-tight inline-block ${
+        className={`font-heading font-extrabold tracking-tight inline-block text-balance ${
           size === "lg" ? "text-4xl md:text-5xl" : "text-2xl md:text-3xl"
         } ${dark ? "text-white" : "text-black"}`}
       >
