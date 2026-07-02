@@ -1,6 +1,6 @@
 // app/family-support/page.tsx
 import type { Metadata } from "next";
-import { Home, CalendarHeart, HandCoins, Users } from "lucide-react";
+import { HeartPulse, Sun } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
@@ -19,28 +19,16 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "Respite breaks",
-    description: "[Full description of respite provision. Stephen to supply]",
-    eligibility: "[Eligibility criteria. Stephen to supply]",
-    icon: Home,
+    title: "Holistic Therapy Treatments",
+    description: "Free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, held at Hilary's House of Calm. A chance to unwind, recharge, and focus on your own wellbeing.",
+    eligibility: "Unpaid carers of a child with a serious illness or disability in Lanarkshire. Email smilechildrenscharity@gmail.com to register your interest.",
+    icon: HeartPulse,
   },
   {
-    title: "Family activities",
-    description: "[Full description of family activities. Stephen to supply]",
-    eligibility: "[Eligibility criteria. Stephen to supply]",
-    icon: CalendarHeart,
-  },
-  {
-    title: "Financial grants",
-    description: "[Full description of grant provision. Stephen to supply]",
-    eligibility: "[Eligibility criteria. Stephen to supply]",
-    icon: HandCoins,
-  },
-  {
-    title: "Community support",
-    description: "[Full description of community support. Stephen to supply]",
-    eligibility: "[Eligibility criteria. Stephen to supply]",
-    icon: Users,
+    title: "Family Days Out",
+    description: "Organised trips for families we support, like our annual Blair Drummond Safari Park day out, which brought 150 people together for a day of fun in its most recent year.",
+    eligibility: "Families supported by SMILE. Keep an eye on our News page for upcoming dates.",
+    icon: Sun,
   },
 ];
 

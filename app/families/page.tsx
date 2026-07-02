@@ -1,6 +1,6 @@
 // app/families/page.tsx
 import type { Metadata } from "next";
-import { Home, CalendarHeart, Users, HandCoins } from "lucide-react";
+import { HeartPulse, Sun } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
@@ -28,10 +28,8 @@ const families = [
 ];
 
 const whatWeOffer = [
-  { title: "Respite breaks", description: "[Description of respite provision. Stephen to supply]", icon: Home },
-  { title: "Family activities", description: "[Description of activities. Stephen to supply]", icon: CalendarHeart },
-  { title: "Community support", description: "[Description of community programmes. Stephen to supply]", icon: Users },
-  { title: "Practical grants", description: "[Description of grants. Stephen to supply]", icon: HandCoins },
+  { title: "Holistic Therapy Treatments", description: "Free therapy sessions for unpaid carers, a chance to unwind, recharge, and focus on your own wellbeing.", icon: HeartPulse },
+  { title: "Family Days Out", description: "Organised trips, like our annual Blair Drummond Safari Park day out, bringing families together for fun.", icon: Sun },
 ];
 
 export default function FamiliesPage() {
@@ -46,7 +44,7 @@ export default function FamiliesPage() {
 
       <Section>
         <SectionHeading eyebrow="What We Offer" title="How SMILE supports your family." />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {whatWeOffer.map((item, i) => (
             <FeatureCard
               key={item.title}

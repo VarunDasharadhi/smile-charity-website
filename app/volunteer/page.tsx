@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const roles = [
-  { title: "Events volunteer", commitment: "[Commitment. Stephen to supply]", description: "[Role description. Stephen to supply]" },
-  { title: "Family support volunteer", commitment: "[Commitment. Stephen to supply]", description: "[Role description. Stephen to supply]" },
-  { title: "Admin and communications", commitment: "[Commitment. Stephen to supply]", description: "[Role description. Stephen to supply]" },
-  { title: "Fundraising volunteer", commitment: "[Commitment. Stephen to supply]", description: "[Role description. Stephen to supply]" },
+  { title: "Fundraising events", commitment: "Flexible", description: "Help out at SMILE fundraising events and challenges throughout the year." },
+  { title: "Charity shop", commitment: "Flexible", description: "Assist in our charity shop in Larkhall, from serving customers to sorting donations." },
+  { title: "Admin and communications", commitment: "Flexible", description: "Support the team with day-to-day admin and communications." },
+  { title: "Contribute from home", commitment: "Flexible", description: "Not able to get to Larkhall? There are ways to help SMILE remotely too." },
 ];
 
 const applySteps = [
@@ -50,7 +50,9 @@ export default function VolunteerPage() {
               You will meet people, build skills, and know that what you are doing genuinely matters.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              [Additional volunteering copy. Stephen to supply]
+              It&apos;s a chance to meet new people, learn new skills, and take on a role that&apos;s
+              flexible and rewarding, whether that&apos;s helping at events, in our charity shop,
+              with admin, or from home.
             </p>
           </div>
           <PhotoFrame alt="SMILE volunteer" placeholder="[Volunteer photo. Stephen to supply]" accentColor="teal" />

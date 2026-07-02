@@ -1,6 +1,6 @@
 // app/impact/page.tsx
 import type { Metadata } from "next";
-import { Home, Users, HandCoins, CalendarHeart } from "lucide-react";
+import { HeartPulse, Sun } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
@@ -20,21 +20,19 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "250+", label: "Families supported" },
-  { value: "40+", label: "Events this year" },
-  { value: "120+", label: "Volunteers" },
-  { value: "10+", label: "Years making a difference" },
+  { value: "?", label: "Families supported" },
+  { value: "?", label: "Events this year" },
+  { value: "?", label: "Volunteers" },
+  { value: "3", label: "Corporate partners" },
   { value: "?", label: "Raised for SMILE House" },
   { value: "?", label: "Children supported" },
   { value: "?", label: "Nights of respite provided" },
-  { value: "?", label: "Corporate partners" },
+  { value: "?", label: "Years making a difference" },
 ];
 
 const services = [
-  { name: "Respite breaks", description: "[Impact of respite programme. Stephen to supply]", icon: Home },
-  { name: "Family activities", description: "[Impact of activities programme. Stephen to supply]", icon: CalendarHeart },
-  { name: "Financial grants", description: "[Impact of grant programme. Stephen to supply]", icon: HandCoins },
-  { name: "Community events", description: "[Impact of community events. Stephen to supply]", icon: Users },
+  { name: "Holistic Therapy Treatments", description: "Free therapy sessions for unpaid carers, funded by the Community Health and Wellbeing Fund, at Hilary's House of Calm.", icon: HeartPulse },
+  { name: "Family Days Out", description: "Organised trips like our annual Blair Drummond Safari Park day out, which brought 150 people together in its most recent year.", icon: Sun },
 ];
 
 export default function ImpactPage() {
