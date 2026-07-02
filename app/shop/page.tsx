@@ -1,6 +1,7 @@
 // app/shop/page.tsx
 import type { Metadata } from "next";
-import { MapPin, Clock, ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Clock, ShoppingBag, Navigation } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
@@ -22,18 +23,20 @@ const shops = [
     town: "Larkhall",
     address: "101 Union Street, Larkhall, South Lanarkshire, ML9 1EB",
     hours: "Tuesday to Saturday, from 10am",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=101+Union+Street+Larkhall+ML9+1EB",
   },
   {
     town: "Hamilton",
     address: "[Shop address, Hamilton. Stephen to supply]",
     hours: "[Opening hours. Stephen to supply]",
+    mapsUrl: null,
   },
 ];
 
 const onlineShops = [
-  { label: "eBay", href: "#" },
-  { label: "Vinted", href: "#" },
-  { label: "Depop", href: "#" },
+  { label: "eBay", href: "#", logo: "/images/brands/ebay.svg", logoOnly: true },
+  { label: "Vinted", href: "#", logo: "/images/brands/vinted.svg", logoOnly: false },
+  { label: "Depop", href: "#", logo: "/images/brands/depop.svg", logoOnly: true },
 ];
 
 export default function ShopPage() {
@@ -66,6 +69,17 @@ export default function ShopPage() {
                   <Clock className="w-4 h-4 mt-0.5 shrink-0" strokeWidth={2} />
                   {shop.hours}
                 </p>
+                {shop.mapsUrl && (
+                  <a
+                    href={shop.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-yellow text-black text-sm font-bold transition-all hover:bg-yellow-dark hover:-translate-y-0.5"
+                  >
+                    <Navigation className="w-4 h-4" strokeWidth={2} />
+                    Get directions
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}
@@ -84,9 +98,13 @@ export default function ShopPage() {
               href={shop.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full bg-white border-2 border-black font-heading font-bold text-black shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]"
+              aria-label={`SMILE on ${shop.label}`}
+              className="flex items-center gap-3 px-8 py-4 rounded-full bg-white border-2 border-black shadow-[0_8px_20px_rgba(0,0,0,0.06)] transition-all hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)]"
             >
-              {shop.label}
+              <Image src={shop.logo} alt={shop.label} width={shop.logoOnly ? 72 : 28} height={28} className="h-7 w-auto" />
+              {!shop.logoOnly && (
+                <span className="font-heading font-bold text-black">{shop.label}</span>
+              )}
             </a>
           ))}
         </div>

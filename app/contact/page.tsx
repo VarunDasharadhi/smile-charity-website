@@ -3,7 +3,6 @@ import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
-import PhotoFrame from "@/components/PhotoFrame";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -48,7 +47,24 @@ export default function ContactPage() {
               </div>
             </dl>
             <div className="mt-8">
-              <PhotoFrame alt="SMILE office location" placeholder="[Map or location image. Stephen to supply]" aspect="video" accentColor="yellow" />
+              <div className="rounded-3xl overflow-hidden shadow-[0_24px_50px_rgba(0,0,0,0.18)] aspect-video">
+                <iframe
+                  src="https://maps.google.com/maps?q=101%20Union%20Street%2C%20Larkhall%2C%20ML9%201EB&output=embed"
+                  title="Map showing SMILE Children's Charity at 101 Union Street, Larkhall"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=101+Union+Street+Larkhall+ML9+1EB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 font-bold text-black underline underline-offset-4 hover:text-yellow-dark transition-colors"
+              >
+                Open in Google Maps
+              </a>
             </div>
           </div>
 

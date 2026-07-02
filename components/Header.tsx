@@ -9,9 +9,24 @@ import DonateButton from "./DonateButton";
 import MobileNav from "./MobileNav";
 
 const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/p/SMILE-Childrens-Charity-61555674308075/", icon: FacebookIcon },
-  { label: "Instagram", href: "https://www.instagram.com/smilechildrenscharity", icon: InstagramIcon },
-  { label: "X", href: "https://www.twitter.com/smilechildrens", icon: XIcon },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/p/SMILE-Childrens-Charity-61555674308075/",
+    icon: FacebookIcon,
+    brandClass: "bg-[#1877F2] text-white",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/smilechildrenscharity",
+    icon: InstagramIcon,
+    brandClass: "bg-[linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)] text-white",
+  },
+  {
+    label: "X",
+    href: "https://www.twitter.com/smilechildrens",
+    icon: XIcon,
+    brandClass: "bg-white text-black",
+  },
 ];
 
 interface NavGroup {
@@ -85,7 +100,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/70 transition-all hover:bg-yellow hover:text-black hover:scale-110"
+                className={`w-6 h-6 rounded-full flex items-center justify-center transition-transform hover:scale-125 ${s.brandClass}`}
               >
                 <s.icon className="w-3 h-3" />
               </a>
