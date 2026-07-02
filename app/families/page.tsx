@@ -1,12 +1,11 @@
 // app/families/page.tsx
 import type { Metadata } from "next";
-import { HeartPulse, Sun } from "lucide-react";
+import Link from "next/link";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
-import FeatureCard from "@/components/FeatureCard";
 
 export const metadata: Metadata = {
   title: "Meet Our Families",
@@ -27,11 +26,6 @@ const families = [
   { quote: "[Family story. Stephen to supply with consent]", name: "[Family name]", location: "Lanarkshire" },
 ];
 
-const whatWeOffer = [
-  { title: "Holistic Therapy Treatments", description: "Free therapy sessions for unpaid carers, a chance to unwind, recharge, and focus on your own wellbeing.", icon: HeartPulse },
-  { title: "Family Days Out", description: "Organised trips, like our annual Blair Drummond Safari Park day out, bringing families together for fun.", icon: Sun },
-];
-
 export default function FamiliesPage() {
   return (
     <>
@@ -43,18 +37,17 @@ export default function FamiliesPage() {
       />
 
       <Section>
-        <SectionHeading eyebrow="What We Offer" title="How SMILE supports your family." />
-        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-          {whatWeOffer.map((item, i) => (
-            <FeatureCard
-              key={item.title}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              tone="teal"
-              delay={i * 100}
-            />
-          ))}
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            Wondering what SMILE can offer your own family? See our services, who they are for, and
+            how to access them.
+          </p>
+          <Link
+            href="/family-support"
+            className="inline-block px-6 py-3 rounded-full bg-teal text-white font-bold hover:bg-teal-dark transition-colors"
+          >
+            View Family Support
+          </Link>
         </div>
       </Section>
 
