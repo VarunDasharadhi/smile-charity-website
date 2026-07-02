@@ -21,36 +21,42 @@ const articles = [
     title: "Successful Community Asset Transfer of Canderavon",
     date: "18 March 2026",
     excerpt: "South Lanarkshire Council has formally approved the transfer of Canderavon to SMILE, the foundation for a new respite house, sensory space, and community hub.",
+    image: "/images/news-canderavon.jpg",
   },
   {
     category: "Impact",
     title: "Co-Op Local Community Fund Win",
     date: "27 February 2026",
     excerpt: "A Co-op customer won £500 in the member prize draw and kindly nominated SMILE Children's Charity to receive it.",
+    image: "/images/news-coop.jpg",
   },
   {
     category: "Impact",
     title: "Free Holistic Therapies for Parent/Carers",
     date: "19 February 2026",
     excerpt: "SMILE has been awarded funding to continue free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, at Hilary's House of Calm.",
+    image: "/images/news-holistic.jpg",
   },
   {
     category: "Events",
     title: "We're Taking on the Kiltwalk – Join Team SMILE!",
     date: "23 January 2026",
     excerpt: "Join Team SMILE at the Kiltwalk in Glasgow, Aberdeen, Dundee, or Edinburgh and help raise vital funds for local families.",
+    image: "/images/news-kiltwalk.jpg",
   },
   {
     category: "Appeal",
     title: "Women's Guild Visit - Machan's Church in Larkhall",
     date: "3 March 2026",
     excerpt: "We visited the Women's Guild at St Machan's Church in Larkhall, who kindly gifted the charity £50 plus additional donations of £207.",
+    image: "/images/news-guild.jpg",
   },
   {
     category: "Appeal",
     title: "£700 Donation From Broadlees Golf",
     date: "14 January 2026",
     excerpt: "Broadlees Golf raised an incredible £700 over the festive period to support SMILE's work with families across Lanarkshire.",
+    image: "/images/news-broadlees.jpg",
   },
 ];
 
@@ -84,7 +90,7 @@ export default function NewsPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {articles.map((a, i) => (
             <Link key={i} href="/news" className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all">
-              <PhotoFrame alt={a.title} placeholder="[Article image. Stephen to supply]" aspect="video" accentColor="yellow" />
+              <PhotoFrame src={a.image} alt={a.title} aspect="video" accentColor="yellow" />
               <div className="p-5">
                 <span className="inline-block px-3 py-1 rounded-full bg-yellow text-black text-xs font-bold mb-3">
                   {a.category}

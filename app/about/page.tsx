@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Heart, Users, HandHeart } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
@@ -19,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const team = [
-  { name: "Wendy Meek", role: "CEO/Founder" },
-  { name: "Stephen Meek", role: "Founder/Trustee" },
-  { name: "Emma Allan", role: "Chairperson" },
-  { name: "Sophie Meek", role: "Treasurer" },
+  { name: "Wendy Meek", role: "CEO/Founder", photo: "/images/team-wendy.png" },
+  { name: "Stephen Meek", role: "Founder/Trustee", photo: "/images/team-stephen.jpg" },
+  { name: "Emma Allan", role: "Chairperson", photo: "/images/team-emma.png" },
+  { name: "Sophie Meek", role: "Treasurer", photo: "/images/team-sophie.png" },
 ];
 
 const values = [
@@ -71,7 +72,7 @@ export default function AboutPage() {
               </span>
             </p>
           </div>
-          <PhotoFrame alt="The SMILE team" placeholder="[Team or charity photo. Stephen to supply]" aspect="video" accentColor="yellow" />
+          <PhotoFrame src="/images/about-charity.jpg" alt="A child supported by SMILE" aspect="video" accentColor="yellow" />
         </div>
       </Section>
 
@@ -107,8 +108,14 @@ export default function AboutPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {team.map((t) => (
             <div key={t.name} className="text-center">
-              <div className="w-full aspect-square bg-gray-100 rounded-2xl mb-3 flex items-center justify-center text-gray-400 text-sm italic">
-                [Photo. Stephen to supply]
+              <div className="relative w-full aspect-square rounded-2xl mb-3 overflow-hidden bg-gray-100">
+                <Image
+                  src={t.photo}
+                  alt={t.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover"
+                />
               </div>
               <p className="font-heading font-bold text-black text-sm">{t.name}</p>
               <p className="text-gray-500 text-xs">{t.role}</p>

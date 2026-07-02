@@ -3,8 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Phone, Mail } from "lucide-react";
+import { FacebookIcon, InstagramIcon, XIcon } from "./SocialIcons";
 import DonateButton from "./DonateButton";
 import MobileNav from "./MobileNav";
+
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/p/SMILE-Childrens-Charity-61555674308075/", icon: FacebookIcon },
+  { label: "Instagram", href: "https://www.instagram.com/smilechildrenscharity", icon: InstagramIcon },
+  { label: "X", href: "https://www.twitter.com/smilechildrens", icon: XIcon },
+];
 
 interface NavGroup {
   label: string;
@@ -48,21 +56,40 @@ export default function Header() {
   return (
     <>
       <div className="hidden lg:block bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-5">
-            <span className="text-white/70">01698 642411</span>
-            <span className="text-white/70">smilechildrenscharity@gmail.com</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between text-xs">
+          <div className="flex items-center gap-6">
+            <a
+              href="tel:01698642411"
+              className="group flex items-center gap-2 text-white/70 hover:text-yellow transition-colors"
+            >
+              <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-yellow group-hover:text-black group-hover:scale-110">
+                <Phone className="w-3 h-3" strokeWidth={2} />
+              </span>
+              01698 642411
+            </a>
+            <a
+              href="mailto:smilechildrenscharity@gmail.com"
+              className="group flex items-center gap-2 text-white/70 hover:text-yellow transition-colors"
+            >
+              <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-yellow group-hover:text-black group-hover:scale-110">
+                <Mail className="w-3 h-3" strokeWidth={2} />
+              </span>
+              smilechildrenscharity@gmail.com
+            </a>
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="https://www.facebook.com/SMILE%20Children%E2%80%99s%20Charity" className="text-white/70 hover:text-yellow transition-colors">
-              Facebook
-            </Link>
-            <Link href="https://www.instagram.com/smilechildrenscharity" className="text-white/70 hover:text-yellow transition-colors">
-              Instagram
-            </Link>
-            <Link href="https://www.twitter.com/smilechildrens" className="text-white/70 hover:text-yellow transition-colors">
-              X
-            </Link>
+          <div className="flex items-center gap-2">
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-white/70 transition-all hover:bg-yellow hover:text-black hover:scale-110"
+              >
+                <s.icon className="w-3 h-3" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

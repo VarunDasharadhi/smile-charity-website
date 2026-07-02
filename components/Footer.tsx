@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FacebookIcon, InstagramIcon, XIcon } from "./SocialIcons";
 import DonateButton from "./DonateButton";
 import WaveDivider from "./WaveDivider";
+
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/p/SMILE-Childrens-Charity-61555674308075/", icon: FacebookIcon },
+  { label: "Instagram", href: "https://www.instagram.com/smilechildrenscharity", icon: InstagramIcon },
+  { label: "X", href: "https://www.twitter.com/smilechildrens", icon: XIcon },
+];
 
 const footerLinks = [
   {
@@ -97,10 +104,19 @@ export default function Footer() {
           <p className="text-xs text-gray-500">
             &copy; {new Date().getFullYear()} SMILE Children&apos;s Charity SCIO. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            <Link href="https://www.facebook.com/SMILE%20Children%E2%80%99s%20Charity" className="text-gray-500 hover:text-yellow transition-colors text-sm">Facebook</Link>
-            <Link href="https://www.instagram.com/smilechildrenscharity" className="text-gray-500 hover:text-yellow transition-colors text-sm">Instagram</Link>
-            <Link href="https://www.twitter.com/smilechildrens" className="text-gray-500 hover:text-yellow transition-colors text-sm">X</Link>
+          <div className="flex gap-3">
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-400 transition-all hover:bg-yellow hover:text-black hover:scale-110"
+              >
+                <s.icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

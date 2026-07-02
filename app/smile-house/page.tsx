@@ -52,7 +52,7 @@ export default function SmileHousePage() {
               and a welcoming community hub for families and carers.
             </p>
           </div>
-          <PhotoFrame alt="SMILE House" placeholder="[SMILE House render or image. Stephen to supply]" aspect="video" accentColor="teal" accentPosition="bottom-right" />
+          <PhotoFrame src="/images/smile-house.jpg" alt="Canderavon, the future home of SMILE House" aspect="video" accentColor="teal" accentPosition="bottom-right" />
         </div>
       </Section>
 

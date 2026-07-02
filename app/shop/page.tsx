@@ -44,6 +44,8 @@ export default function ShopPage() {
         title="Every donated item helps a family."
         subtitle="Our charity shops in Larkhall and Hamilton raise funds for SMILE, and you can shop with us online too."
         bg="yellow"
+        imageSrc="/images/charity-shop.jpg"
+        imageAlt="Inside the SMILE charity shop in Larkhall"
       />
 
       <Section>

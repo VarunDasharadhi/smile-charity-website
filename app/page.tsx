@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { HeartHandshake, TrendingUp, Users, Building2 } from "lucide-react";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
@@ -86,10 +87,15 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative bg-black text-white min-h-screen flex flex-col justify-center">
+        <Image
+          src="/images/hero-2.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center text-gray-600 text-sm italic pointer-events-none select-none">
-          [Hero image. Stephen to supply]
-        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <SectionLabel dark>SMILE Children&apos;s Charity</SectionLabel>
           <h1 className="font-heading text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 max-w-3xl">
@@ -139,7 +145,7 @@ export default function HomePage() {
               More about us
             </Link>
           </div>
-          <PhotoFrame alt="Family supported by SMILE" placeholder="[Photo. Stephen to supply]" accentColor="yellow" />
+          <PhotoFrame src="/images/about-charity.jpg" alt="A child supported by SMILE" accentColor="yellow" />
         </div>
       </Section>
 
@@ -203,8 +209,8 @@ export default function HomePage() {
             <DonateButton size="lg" label="Support SMILE House" />
           </div>
           <PhotoFrame
-            alt="SMILE House"
-            placeholder="[SMILE House image. Stephen to supply]"
+            src="/images/smile-house.jpg"
+            alt="Canderavon, the future home of SMILE House"
             aspect="video"
             accentColor="teal"
             accentPosition="bottom-right"

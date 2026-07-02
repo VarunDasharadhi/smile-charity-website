@@ -65,7 +65,14 @@ export default function EventsPage() {
       <Section bg="gray">
         <SectionHeading eyebrow="Past Events" title="What we have done together." />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          <PhotoFrame
+            src="/images/family-days-out.jpg"
+            alt="Blair Drummond Safari Park family day out"
+            aspect="video"
+            accentColor="yellow"
+            accentPosition="top-left"
+          />
+          {[2, 3, 4, 5, 6].map((i) => (
             <PhotoFrame
               key={i}
               alt={`Past SMILE event ${i}`}
