@@ -36,15 +36,15 @@ export default function ContactPage() {
               </div>
               <div>
                 <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Phone</dt>
-                <dd className="text-gray-600">[Phone number. Stephen to supply]</dd>
+                <dd className="text-gray-600">01698 642411</dd>
               </div>
               <div>
                 <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Email</dt>
-                <dd className="text-gray-600">[Email address. Stephen to supply]</dd>
+                <dd className="text-gray-600">smilechildrenscharity@gmail.com</dd>
               </div>
               <div>
                 <dt className="font-heading font-bold text-black text-sm uppercase tracking-wide mb-1">Opening hours</dt>
-                <dd className="text-gray-600">[Opening hours. Stephen to supply]</dd>
+                <dd className="text-gray-600">Tuesday to Saturday, from 10am (charity shop, same address)</dd>
               </div>
             </dl>
             <div className="mt-8">

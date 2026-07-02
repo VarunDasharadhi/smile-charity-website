@@ -9,10 +9,10 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Visit SMILE Children's Charity's shops in Larkhall and Hamilton, or find us online.",
+  description: "Visit SMILE Children's Charity's shop in Larkhall, or find us online.",
   openGraph: {
     title: "Shop | SMILE Children's Charity",
-    description: "Visit our charity shops in Larkhall and Hamilton, or find us online.",
+    description: "Visit our charity shop in Larkhall, or find us online.",
     type: "website",
   },
 };
@@ -20,13 +20,8 @@ export const metadata: Metadata = {
 const shops = [
   {
     town: "Larkhall",
-    address: "[Shop address, Larkhall. Stephen to supply]",
-    hours: "[Opening hours. Stephen to supply]",
-  },
-  {
-    town: "Hamilton",
-    address: "[Shop address, Hamilton. Stephen to supply]",
-    hours: "[Opening hours. Stephen to supply]",
+    address: "101 Union Street, Larkhall, South Lanarkshire, ML9 1EB",
+    hours: "Tuesday to Saturday, from 10am",
   },
 ];
 
@@ -42,13 +37,13 @@ export default function ShopPage() {
       <PageHero
         eyebrow="Shop"
         title="Every donated item helps a family."
-        subtitle="Our charity shops in Larkhall and Hamilton raise funds for SMILE, and you can shop with us online too."
+        subtitle="Our charity shop in Larkhall raises funds for SMILE, and you can shop with us online too."
         bg="yellow"
       />
 
       <Section>
-        <SectionHeading eyebrow="Visit Us" title="Our shops." />
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <SectionHeading eyebrow="Visit Us" title="Our shop." />
+        <div className="grid gap-8 max-w-sm mx-auto">
           {shops.map((shop, i) => (
             <Reveal key={shop.town} delay={i * 100}>
               <div className="border border-gray-100 rounded-2xl p-8 h-full">
@@ -92,7 +87,7 @@ export default function ShopPage() {
 
       <CTABanner
         heading="Have items to donate?"
-        subtext="Drop them into either shop during opening hours, no appointment needed."
+        subtext="Drop them into the shop during opening hours, no appointment needed."
         primaryLabel="Contact Us"
         primaryHref="/contact"
         secondaryLabel="Donate Now"

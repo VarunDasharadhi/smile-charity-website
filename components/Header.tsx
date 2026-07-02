@@ -50,8 +50,8 @@ export default function Header() {
       <div className="hidden lg:block bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between text-xs">
           <div className="flex items-center gap-5">
-            <span className="text-white/70">[Phone number. Stephen to supply]</span>
-            <span className="text-white/70">[Email address. Stephen to supply]</span>
+            <span className="text-white/70">01698 642411</span>
+            <span className="text-white/70">smilechildrenscharity@gmail.com</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="https://facebook.com" className="text-white/70 hover:text-yellow transition-colors">
