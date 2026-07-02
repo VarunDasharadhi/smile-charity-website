@@ -76,7 +76,7 @@ export default function AboutPage() {
               </span>
             </p>
           </div>
-          <PhotoFrame src="/images/about-charity.jpg" alt="A child supported by SMILE" aspect="video" accentColor="yellow" />
+          <PhotoFrame alt="The SMILE team" placeholder="[Team or charity photo. Stephen to supply]" aspect="video" accentColor="yellow" />
         </div>
       </Section>
 

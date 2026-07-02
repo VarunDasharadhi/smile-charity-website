@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const roles = [
-  { title: "Fundraising events", commitment: "Flexible", description: "Help out at SMILE fundraising events and challenges throughout the year." },
-  { title: "Charity shop", commitment: "Flexible", description: "Assist in our charity shop in Larkhall, from serving customers to sorting donations." },
-  { title: "Admin and communications", commitment: "Flexible", description: "Support the team with day-to-day admin and communications." },
-  { title: "Contribute from home", commitment: "Flexible", description: "Not able to get to Larkhall? There are ways to help SMILE remotely too." },
+  { title: "Fundraising events", description: "Help out at SMILE fundraising events and challenges throughout the year." },
+  { title: "Charity shop", description: "Assist in our charity shop in Larkhall, from serving customers to sorting donations." },
+  { title: "Admin and communications", description: "Support the team with day-to-day admin and communications." },
+  { title: "Contribute from home", description: "Not able to get to Larkhall? There are ways to help SMILE remotely too." },
 ];
 
 const applySteps = [
@@ -64,12 +64,7 @@ export default function VolunteerPage() {
         <div className="grid md:grid-cols-2 gap-6">
           {roles.map((r) => (
             <div key={r.title} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="font-heading font-bold text-black text-lg">{r.title}</h3>
-                <span className="text-xs text-teal font-semibold bg-teal/10 px-3 py-1 rounded-full whitespace-nowrap ml-3">
-                  {r.commitment}
-                </span>
-              </div>
+              <h3 className="font-heading font-bold text-black text-lg mb-3">{r.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">{r.description}</p>
             </div>
           ))}

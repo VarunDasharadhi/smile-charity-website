@@ -24,18 +24,20 @@
 }
 
 /* Base styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-white);
   color: var(--color-black);
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
   font-weight: 700;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 @media (prefers-reduced-motion: reduce) {

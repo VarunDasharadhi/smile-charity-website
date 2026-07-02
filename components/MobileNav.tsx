@@ -2,7 +2,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Phone, Mail } from "lucide-react";
 import DonateButton from "./DonateButton";
+import { FacebookIcon, InstagramIcon, XIcon } from "./SocialIcons";
+
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/p/SMILE-Childrens-Charity-61555674308075/", icon: FacebookIcon, brandClass: "bg-[#1877F2] text-white" },
+  { label: "Instagram", href: "https://www.instagram.com/smilechildrenscharity", icon: InstagramIcon, brandClass: "bg-[linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)] text-white" },
+  { label: "X", href: "https://www.twitter.com/smilechildrens", icon: XIcon, brandClass: "bg-black text-white" },
+];
 
 interface NavGroup {
   label: string;
@@ -55,7 +63,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300 ease-in-out ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
@@ -124,6 +132,35 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
               </li>
             ))}
           </ul>
+
+          <div className="mt-8 pt-6 border-t border-gray-100 px-3 space-y-3">
+            <a href="tel:01698642411" className="flex items-center gap-3 text-sm text-gray-600 hover:text-black transition-colors">
+              <span className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
+                <Phone className="w-4 h-4" strokeWidth={2} />
+              </span>
+              01698 642411
+            </a>
+            <a href="mailto:smilechildrenscharity@gmail.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-black transition-colors min-w-0">
+              <span className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
+                <Mail className="w-4 h-4" strokeWidth={2} />
+              </span>
+              <span className="truncate">smilechildrenscharity@gmail.com</span>
+            </a>
+            <div className="flex items-center gap-2 pt-1">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-110 ${s.brandClass}`}
+                >
+                  <s.icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
         </nav>
         <div className="p-4 border-t border-gray-100">
           <DonateButton size="md" />
