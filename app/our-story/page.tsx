@@ -35,7 +35,7 @@ export default function OurStoryPage() {
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <PhotoFrame alt="Wendy and Stephen Meek, SMILE founders" placeholder="[Photo of Wendy and Stephen, or of Justin. Stephen to supply]" accentColor="teal" />
+          <PhotoFrame src="/images/about-charity.jpg" alt="Justin Meek" accentColor="teal" />
           <div>
             <SectionHeading eyebrow="How It Started" title="In loving memory of Justin." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
