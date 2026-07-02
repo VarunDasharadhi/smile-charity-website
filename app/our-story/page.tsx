@@ -8,10 +8,10 @@ import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "Our Story",
-  description: "How SMILE was founded — the story of Justin and Charlotte and why they started SMILE Children's Charity.",
+  description: "How SMILE was founded — in memory of Justin Meek, and why Wendy and Stephen started SMILE Children's Charity.",
   openGraph: {
     title: "Our Story | SMILE Children's Charity",
-    description: "How SMILE was founded — the story of Justin and Charlotte.",
+    description: "How SMILE was founded — in memory of Justin Meek.",
     type: "website",
   },
 };
@@ -29,20 +29,24 @@ export default function OurStoryPage() {
       <PageHero
         eyebrow="Our Story"
         title="Born from love. Built for families."
-        subtitle="[One-sentence story teaser. Stephen to supply]"
+        subtitle="Founded in memory of a much-loved little boy, and built to make sure other families never face it alone."
         bg="navy"
       />
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <PhotoFrame alt="Justin and Charlotte, SMILE founders" placeholder="[Justin and Charlotte photo. Stephen to supply]" accentColor="teal" />
+          <PhotoFrame alt="Wendy and Stephen Meek, SMILE founders" placeholder="[Photo of Wendy and Stephen, or of Justin. Stephen to supply]" accentColor="teal" />
           <div>
-            <SectionHeading eyebrow="How It Started" title="[Founding story heading. Stephen to supply]" centered={false} />
+            <SectionHeading eyebrow="How It Started" title="In loving memory of Justin." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
-              [Justin and Charlotte founding story paragraph 1. Stephen to supply]
+              SMILE Children&apos;s Charity was founded in February 2024, inspired by an incredible young boy,
+              Justin Meek, who sadly passed away suddenly in 2014 while on a family holiday in Florida.
+              His death inspired his parents, Wendy and Stephen, to set up SMILE Children&apos;s Charity in his memory.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              [Founding story paragraph 2. Stephen to supply]
+              Our vision is to open a tranquil respite facility in Lanarkshire where families with children
+              who have disabilities or serious illness can relax, have fun, and spend quality time together
+              making memories.
             </p>
           </div>
         </div>

@@ -150,7 +150,9 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <SectionHeading eyebrow="Our Story" title="Born from love. Built for families." dark />
           <p className="text-gray-300 text-lg leading-relaxed mb-8 text-center">
-            [Justin and Charlotte&apos;s story. Stephen to supply the founding story and photos.]
+            SMILE was founded in memory of Justin Meek, a much-loved little boy who passed away
+            suddenly in 2014. His parents, Wendy and Stephen, built this charity so no family
+            facing what they faced would have to face it alone.
           </p>
           <div className="text-center">
             <Link
