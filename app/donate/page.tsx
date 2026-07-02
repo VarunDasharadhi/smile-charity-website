@@ -66,7 +66,7 @@ export default function DonatePage() {
           {/* Processor placeholder */}
           <div className="bg-gray-50 rounded-3xl p-8 text-center border-2 border-dashed border-gray-200">
             <p className="text-gray-500 text-sm italic">
-              [Payment processor to be integrated. Stripe / PayPal Giving Fund / JustGiving — pending Stephen&apos;s confirmation]
+              [Payment processor to be integrated. Stripe / PayPal Giving Fund / JustGiving, pending Stephen&apos;s confirmation]
             </p>
           </div>
         </div>

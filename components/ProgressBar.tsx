@@ -23,7 +23,7 @@ export default function ProgressBar({ raised, target, label }: ProgressBarProps)
       <p className="text-sm text-gray-400 mt-2">
         {hasData
           ? `£${raised!.toLocaleString()} raised of £${target!.toLocaleString()} target`
-          : "Target to be confirmed — every donation counts"}
+          : "Target to be confirmed, every donation counts"}
       </p>
     </div>
   );

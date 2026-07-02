@@ -11,10 +11,10 @@ import DonateButton from "@/components/DonateButton";
 
 export const metadata: Metadata = {
   title: "SMILE House Project",
-  description: "Help us build SMILE House — a dedicated space for families supported by SMILE Children's Charity.",
+  description: "Help us build SMILE House, a dedicated space for families supported by SMILE Children's Charity.",
   openGraph: {
     title: "SMILE House Project | SMILE Children's Charity",
-    description: "Help us build SMILE House — a dedicated space for families.",
+    description: "Help us build SMILE House, a dedicated space for families.",
     type: "website",
   },
 };

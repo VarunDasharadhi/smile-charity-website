@@ -60,7 +60,7 @@ const quickLinks = [
   {
     label: "Donate",
     href: "/donate",
-    tone: "yellow" as const,
+    tone: "blue" as const,
     icon: <HeartHandshake className="w-9 h-9" strokeWidth={2} />,
   },
   {
@@ -78,7 +78,7 @@ const quickLinks = [
   {
     label: "Corporate",
     href: "/corporate",
-    tone: "yellow" as const,
+    tone: "teal-dark" as const,
     icon: <Building2 className="w-9 h-9" strokeWidth={2} />,
   },
 ];

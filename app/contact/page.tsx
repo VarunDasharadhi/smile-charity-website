@@ -75,7 +75,7 @@ export default function ContactPage() {
                 The contact form is being set up. In the meantime, please reach us by phone or email above.
               </p>
               <p className="text-gray-400 text-xs">
-                [Form backend to be configured — pending Stephen&apos;s sign-off]
+                [Form backend to be configured, pending Stephen&apos;s sign-off]
               </p>
             </div>
           </div>

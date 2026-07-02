@@ -4,7 +4,7 @@ interface IconLink {
   icon: React.ReactNode;
   label: string;
   href: string;
-  tone: "yellow" | "teal" | "navy";
+  tone: "yellow" | "teal" | "navy" | "blue" | "teal-dark";
 }
 
 interface IconLinkRowProps {
@@ -16,6 +16,8 @@ export default function IconLinkRow({ links }: IconLinkRowProps) {
     yellow: "bg-yellow text-black",
     teal: "bg-teal text-white",
     navy: "bg-black text-white",
+    blue: "bg-blue text-white",
+    "teal-dark": "bg-teal-dark text-white",
   };
 
   return (

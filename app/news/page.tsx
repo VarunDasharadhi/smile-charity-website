@@ -39,7 +39,7 @@ const articles = [
   },
   {
     category: "Events",
-    title: "We're Taking on the Kiltwalk – Join Team SMILE!",
+    title: "We're Taking on the Kiltwalk, Join Team SMILE!",
     date: "23 January 2026",
     excerpt: "Join Team SMILE at the Kiltwalk in Glasgow, Aberdeen, Dundee, or Edinburgh and help raise vital funds for local families.",
     image: "/images/news-kiltwalk.jpg",

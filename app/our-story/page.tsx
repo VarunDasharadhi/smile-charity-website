@@ -8,10 +8,10 @@ import WaveDivider from "@/components/WaveDivider";
 
 export const metadata: Metadata = {
   title: "Our Story",
-  description: "How SMILE was founded — in memory of Justin Meek, and why Wendy and Stephen started SMILE Children's Charity.",
+  description: "How SMILE was founded in memory of Justin Meek, and why Wendy and Stephen started SMILE Children's Charity.",
   openGraph: {
     title: "Our Story | SMILE Children's Charity",
-    description: "How SMILE was founded — in memory of Justin Meek.",
+    description: "How SMILE was founded in memory of Justin Meek.",
     type: "website",
   },
 };

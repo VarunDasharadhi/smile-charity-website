@@ -112,7 +112,7 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" aria-label="SMILE Children's Charity — home">
+            <Link href="/" aria-label="SMILE Children's Charity, home">
               <Image
                 src="/logo.png"
                 alt="SMILE Children's Charity"

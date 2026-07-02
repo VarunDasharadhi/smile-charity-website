@@ -42,7 +42,7 @@ export default function ImpactPage() {
       <PageHero
         eyebrow="Our Impact"
         title="The difference your support makes."
-        subtitle="Every donation, every fundraiser, every volunteer hour — it all adds up to something real."
+        subtitle="Every donation, every fundraiser, every volunteer hour, it all adds up to something real."
         bg="yellow"
       />
 
