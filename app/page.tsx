@@ -24,11 +24,12 @@ export const metadata: Metadata = {
   },
 };
 
+// Illustrative placeholder figures. Replace with real numbers from Stephen.
 const impactStats = [
-  { value: "?", label: "Families supported" },
-  { value: "3", label: "Corporate partners" },
-  { value: "?", label: "Events this year" },
-  { value: "?", label: "Raised for SMILE House" },
+  { value: "150+", label: "Families supported" },
+  { value: "20+", label: "Events this year" },
+  { value: "50+", label: "Volunteers" },
+  { value: "£30k+", label: "Raised for SMILE House" },
 ];
 
 const testimonials = [
@@ -181,6 +182,9 @@ export default function HomePage() {
             <AnimatedCounter key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>
+        <p className="text-black/50 text-xs text-center mt-8 italic">
+          [Illustrative figures. Real numbers to be confirmed by Stephen]
+        </p>
         <div className="mt-12 text-center">
           <Link
             href="/impact"
@@ -277,15 +281,20 @@ export default function HomePage() {
       {/* Corporate supporters */}
       <Section bg="gray">
         <SectionHeading title="Supported by" />
-        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">Logo artwork still to come from Stephen</p>
-        <div className="flex flex-wrap gap-4 justify-center items-center">
-          {["Rocca Hamilton", "Co-Op", "National Lottery Community Fund"].map((partner) => (
-            <span
-              key={partner}
-              className="px-6 py-3 rounded-full bg-white text-gray-600 font-heading font-semibold text-sm"
-            >
-              {partner}
-            </span>
+        <div className="flex flex-wrap gap-10 justify-center items-center">
+          {[
+            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png" },
+            { name: "Co-op", logo: "/images/brands/partner-coop.png" },
+            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png" },
+          ].map((partner) => (
+            <Image
+              key={partner.name}
+              src={partner.logo}
+              alt={partner.name}
+              width={160}
+              height={80}
+              className="h-16 w-auto object-contain"
+            />
           ))}
         </div>
         <div className="mt-12 text-center">

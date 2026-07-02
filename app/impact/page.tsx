@@ -19,15 +19,16 @@ export const metadata: Metadata = {
   },
 };
 
+// Illustrative placeholder figures. Replace with real numbers from Stephen.
 const stats = [
-  { value: "?", label: "Families supported" },
-  { value: "?", label: "Events this year" },
-  { value: "?", label: "Volunteers" },
+  { value: "150+", label: "Families supported" },
+  { value: "20+", label: "Events this year" },
+  { value: "50+", label: "Volunteers" },
   { value: "3", label: "Corporate partners" },
-  { value: "?", label: "Raised for SMILE House" },
-  { value: "?", label: "Children supported" },
-  { value: "?", label: "Nights of respite provided" },
-  { value: "?", label: "Years making a difference" },
+  { value: "£30k+", label: "Raised for SMILE House" },
+  { value: "200+", label: "Children supported" },
+  { value: "100+", label: "Free therapy sessions" },
+  { value: "2", label: "Years making a difference" },
 ];
 
 const services = [
@@ -76,6 +77,9 @@ export default function ImpactPage() {
             <AnimatedCounter key={s.label} value={s.value} label={s.label} />
           ))}
         </div>
+        <p className="text-gray-400 text-xs text-center mt-8 italic">
+          [Illustrative figures. Real numbers to be confirmed by Stephen]
+        </p>
       </Section>
 
       <CTABanner

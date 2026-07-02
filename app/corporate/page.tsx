@@ -1,5 +1,6 @@
 // app/corporate/page.tsx
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Megaphone, Users, HeartHandshake, Award, CheckCircle2 } from "lucide-react";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
@@ -107,15 +108,20 @@ export default function CorporatePage() {
 
       <Section>
         <SectionHeading eyebrow="Our Partners" title="Businesses that already support SMILE." />
-        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">Logo artwork still to come from Stephen</p>
-        <div className="flex flex-wrap gap-4 justify-center items-center">
-          {["Rocca Hamilton", "Co-Op", "National Lottery Community Fund"].map((partner) => (
-            <span
-              key={partner}
-              className="px-6 py-3 rounded-full bg-gray-100 text-gray-600 font-heading font-semibold text-sm"
-            >
-              {partner}
-            </span>
+        <div className="flex flex-wrap gap-10 justify-center items-center">
+          {[
+            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png" },
+            { name: "Co-op", logo: "/images/brands/partner-coop.png" },
+            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png" },
+          ].map((partner) => (
+            <Image
+              key={partner.name}
+              src={partner.logo}
+              alt={partner.name}
+              width={160}
+              height={80}
+              className="h-16 w-auto object-contain"
+            />
           ))}
         </div>
       </Section>
