@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { HeartHandshake, TrendingUp, Users, Building2 } from "lucide-react";
+import { HandHeart, PiggyBank, HandHelping, Building2 } from "lucide-react";
 import Section from "@/components/Section";
 import SectionLabel from "@/components/SectionLabel";
 import SectionHeading from "@/components/SectionHeading";
@@ -60,25 +60,25 @@ const quickLinks = [
   {
     label: "Donate",
     href: "/donate",
-    tone: "blue" as const,
-    icon: <HeartHandshake className="w-9 h-9" strokeWidth={2} />,
+    tone: "yellow" as const,
+    icon: <HandHeart className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Fundraise",
     href: "/fundraising",
     tone: "teal" as const,
-    icon: <TrendingUp className="w-9 h-9" strokeWidth={2} />,
+    icon: <PiggyBank className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Volunteer",
     href: "/volunteer",
     tone: "navy" as const,
-    icon: <Users className="w-9 h-9" strokeWidth={2} />,
+    icon: <HandHelping className="w-9 h-9" strokeWidth={2} />,
   },
   {
     label: "Corporate",
     href: "/corporate",
-    tone: "teal-dark" as const,
+    tone: "blue" as const,
     icon: <Building2 className="w-9 h-9" strokeWidth={2} />,
   },
 ];
