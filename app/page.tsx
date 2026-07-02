@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 };
 
 const impactStats = [
-  { value: "250+", label: "Families supported" },
-  { value: "40+", label: "Events this year" },
-  { value: "120+", label: "Volunteers" },
+  { value: "?", label: "Families supported" },
+  { value: "3", label: "Corporate partners" },
+  { value: "?", label: "Events this year" },
   { value: "?", label: "Raised for SMILE House" },
 ];
 
@@ -49,9 +49,9 @@ const testimonials = [
 ];
 
 const events = [
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location TBC]", href: "/events" },
+  { day: "25", month: "APR", title: "Glasgow Kiltwalk 2026", location: "Glasgow", href: "/events" },
+  { day: "TBC", month: "2026", title: "Race Night", location: "[Location TBC]", href: "/events" },
+  { day: "TBC", month: "2026", title: "FREE Family Pantomime Fun", location: "[Location TBC]", href: "/events" },
 ];
 
 const quickLinks = [
@@ -271,10 +271,15 @@ export default function HomePage() {
       {/* Corporate supporters */}
       <Section bg="gray">
         <SectionHeading title="Supported by" />
-        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">[Corporate supporter logos. Stephen to supply]</p>
-        <div className="flex flex-wrap gap-8 justify-center items-center opacity-40">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
+        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">Logo artwork still to come from Stephen</p>
+        <div className="flex flex-wrap gap-4 justify-center items-center">
+          {["Rocca Hamilton", "Co-Op", "National Lottery Community Fund"].map((partner) => (
+            <span
+              key={partner}
+              className="px-6 py-3 rounded-full bg-white text-gray-600 font-heading font-semibold text-sm"
+            >
+              {partner}
+            </span>
           ))}
         </div>
         <div className="mt-12 text-center">

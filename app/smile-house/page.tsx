@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 };
 
 const timeline = [
-  { phase: "Phase 1", title: "[Phase title. Stephen to supply]", status: "current" },
-  { phase: "Phase 2", title: "[Phase title. Stephen to supply]", status: "upcoming" },
+  { phase: "Phase 1", title: "Community Asset Transfer of Canderavon approved", status: "current" },
+  { phase: "Phase 2", title: "Bringing Canderavon to life, working with partners, funders, and the community", status: "upcoming" },
   { phase: "Phase 3", title: "[Phase title. Stephen to supply]", status: "upcoming" },
 ];
 
@@ -42,10 +42,14 @@ export default function SmileHousePage() {
           <div>
             <SectionHeading eyebrow="The Vision" title="Why SMILE House matters." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
-              [SMILE House vision paragraph 1. Stephen to supply]
+              In March 2026, South Lanarkshire Council formally approved the Community Asset Transfer
+              of Canderavon to SMILE Children&apos;s Charity, the foundation for a transformational new
+              chapter for families across Lanarkshire.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              [SMILE House vision paragraph 2. Stephen to supply]
+              Canderavon will be developed into a dedicated, inclusive space, including a respite house
+              for children with disabilities and serious illness, a sensory play and wellbeing centre,
+              and a welcoming community hub for families and carers.
             </p>
           </div>
           <PhotoFrame alt="SMILE House" placeholder="[SMILE House render or image. Stephen to supply]" aspect="video" accentColor="teal" accentPosition="bottom-right" />

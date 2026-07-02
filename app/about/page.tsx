@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   },
 };
 
+const team = [
+  { name: "Wendy Meek", role: "CEO/Founder" },
+  { name: "Stephen Meek", role: "Founder/Trustee" },
+  { name: "Emma Allan", role: "Chairperson" },
+  { name: "Sophie Meek", role: "Treasurer" },
+];
+
 const values = [
   {
     title: "Family first",
@@ -51,10 +58,17 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="Our Mission" title="Why SMILE exists." centered={false} />
             <p className="text-gray-600 text-lg leading-relaxed mb-4">
-              [Mission statement. Stephen to supply.]
+              Our vision is to open a tranquil respite facility in Lanarkshire where families with
+              children who have disabilities or serious illness can relax, have fun, and spend
+              quality time together making memories.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              [Additional mission copy. Stephen to supply.]
+              &ldquo;We understand that sometimes the memories are all that are left, and are priceless.
+              We offer our families mindfulness sessions and alternative therapies, a time to relax,
+              reflect, and improve their mental health.&rdquo;
+              <span className="block mt-2 text-black font-heading font-bold text-base not-italic">
+                Wendy Meek, CEO and Founder
+              </span>
             </p>
           </div>
           <PhotoFrame alt="The SMILE team" placeholder="[Team or charity photo. Stephen to supply]" aspect="video" accentColor="yellow" />
@@ -91,13 +105,13 @@ export default function AboutPage() {
       <Section>
         <SectionHeading eyebrow="Our Team" title="The people behind SMILE." />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="text-center">
+          {team.map((t) => (
+            <div key={t.name} className="text-center">
               <div className="w-full aspect-square bg-gray-100 rounded-2xl mb-3 flex items-center justify-center text-gray-400 text-sm italic">
-                [Photo]
+                [Photo. Stephen to supply]
               </div>
-              <p className="font-heading font-bold text-black text-sm">[Trustee name]</p>
-              <p className="text-gray-500 text-xs">[Role]</p>
+              <p className="font-heading font-bold text-black text-sm">{t.name}</p>
+              <p className="text-gray-500 text-xs">{t.role}</p>
             </div>
           ))}
         </div>

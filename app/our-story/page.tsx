@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  { year: "[Year]", event: "[Founding milestone. Stephen to supply]" },
-  { year: "[Year]", event: "[Growth milestone. Stephen to supply]" },
-  { year: "[Year]", event: "[Impact milestone. Stephen to supply]" },
-  { year: "[Year]", event: "[SMILE House announcement. Stephen to supply]" },
+  { year: "2024", event: "SMILE Children's Charity founded in memory of Justin Meek" },
+  { year: "2026", event: "Secured Scottish Government funding for a Changing Places toilet" },
+  { year: "2026", event: "Awarded funding to launch free holistic therapy sessions for carers" },
+  { year: "2026", event: "Community Asset Transfer of Canderavon approved, the site for SMILE House" },
 ];
 
 export default function OurStoryPage() {
@@ -44,9 +44,11 @@ export default function OurStoryPage() {
               His death inspired his parents, Wendy and Stephen, to set up SMILE Children&apos;s Charity in his memory.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Our vision is to open a tranquil respite facility in Lanarkshire where families with children
-              who have disabilities or serious illness can relax, have fun, and spend quality time together
-              making memories.
+              With their daughter Charlotte living with complex needs, Wendy and Stephen understand
+              first-hand the challenges families face, and the importance of accessible, compassionate
+              support. Our vision is to open a tranquil respite facility in Lanarkshire where families
+              with children who have disabilities or serious illness can relax, have fun, and spend
+              quality time together making memories.
             </p>
           </div>
         </div>

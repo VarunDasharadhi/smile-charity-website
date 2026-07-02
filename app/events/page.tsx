@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 };
 
 const upcomingEvents = [
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
-  { day: "TBC", month: "2026", title: "[Event name. Stephen to supply]", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
+  { day: "25", month: "APR", title: "Glasgow Kiltwalk 2026", location: "Glasgow", description: "Join Team SMILE and help raise vital funds for local families.", href: "/events" },
+  { day: "7", month: "JUN", title: "Aberdeen Kiltwalk 2026", location: "Aberdeen", description: "Join Team SMILE and help raise vital funds for local families.", href: "/events" },
+  { day: "16", month: "AUG", title: "Dundee Kiltwalk 2026", location: "Dundee", description: "Join Team SMILE and help raise vital funds for local families.", href: "/events" },
+  { day: "13", month: "SEP", title: "Edinburgh Kiltwalk 2026", location: "Edinburgh", description: "Join Team SMILE and help raise vital funds for local families.", href: "/events" },
+  { day: "TBC", month: "2026", title: "Race Night", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
+  { day: "TBC", month: "2026", title: "FREE Family Pantomime Fun", location: "[Location. Stephen to supply]", description: "[Short event description. Stephen to supply]", href: "/events" },
 ];
 
 export default function EventsPage() {

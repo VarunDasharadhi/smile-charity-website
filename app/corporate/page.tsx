@@ -107,10 +107,15 @@ export default function CorporatePage() {
 
       <Section>
         <SectionHeading eyebrow="Our Partners" title="Businesses that already support SMILE." />
-        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">[Partner logos. Stephen to supply]</p>
-        <div className="flex flex-wrap gap-8 justify-center items-center opacity-40">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className="w-28 h-12 bg-gray-300 rounded-lg" />
+        <p className="text-gray-500 text-sm text-center -mt-8 mb-10">Logo artwork still to come from Stephen</p>
+        <div className="flex flex-wrap gap-4 justify-center items-center">
+          {["Rocca Hamilton", "Co-Op", "National Lottery Community Fund"].map((partner) => (
+            <span
+              key={partner}
+              className="px-6 py-3 rounded-full bg-gray-100 text-gray-600 font-heading font-semibold text-sm"
+            >
+              {partner}
+            </span>
           ))}
         </div>
       </Section>

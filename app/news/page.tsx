@@ -16,12 +16,42 @@ export const metadata: Metadata = {
 };
 
 const articles = [
-  { category: "Appeal", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
-  { category: "Events", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
-  { category: "Impact", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
-  { category: "Appeal", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
-  { category: "Volunteer", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
-  { category: "Events", title: "[Article title. Stephen to supply]", date: "[Date]", excerpt: "[Article excerpt. Stephen to supply]" },
+  {
+    category: "Appeal",
+    title: "Successful Community Asset Transfer of Canderavon",
+    date: "18 March 2026",
+    excerpt: "South Lanarkshire Council has formally approved the transfer of Canderavon to SMILE, the foundation for a new respite house, sensory space, and community hub.",
+  },
+  {
+    category: "Impact",
+    title: "Co-Op Local Community Fund Win",
+    date: "27 February 2026",
+    excerpt: "A Co-op customer won £500 in the member prize draw and kindly nominated SMILE Children's Charity to receive it.",
+  },
+  {
+    category: "Impact",
+    title: "Free Holistic Therapies for Parent/Carers",
+    date: "19 February 2026",
+    excerpt: "SMILE has been awarded funding to continue free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, at Hilary's House of Calm.",
+  },
+  {
+    category: "Events",
+    title: "We're Taking on the Kiltwalk – Join Team SMILE!",
+    date: "23 January 2026",
+    excerpt: "Join Team SMILE at the Kiltwalk in Glasgow, Aberdeen, Dundee, or Edinburgh and help raise vital funds for local families.",
+  },
+  {
+    category: "Appeal",
+    title: "Women's Guild Visit - Machan's Church in Larkhall",
+    date: "3 March 2026",
+    excerpt: "We visited the Women's Guild at St Machan's Church in Larkhall, who kindly gifted the charity £50 plus additional donations of £207.",
+  },
+  {
+    category: "Appeal",
+    title: "£700 Donation From Broadlees Golf",
+    date: "14 January 2026",
+    excerpt: "Broadlees Golf raised an incredible £700 over the festive period to support SMILE's work with families across Lanarkshire.",
+  },
 ];
 
 const categories = ["All", "Appeal", "Events", "Impact", "Volunteer"];
