@@ -24,6 +24,10 @@ const team = [
   { name: "Stephen Meek", role: "Founder/Trustee", photo: "/images/team-stephen.jpg" },
   { name: "Emma Allan", role: "Chairperson", photo: "/images/team-emma.png" },
   { name: "Sophie Meek", role: "Treasurer", photo: "/images/team-sophie.png" },
+  { name: "Linda MacConnell-Clark", role: "Secretary", photo: null },
+  { name: "Dr Gregor Walker", role: "Trustee", photo: "/images/team-gregor.jpg" },
+  { name: "John Clark", role: "Trustee", photo: null },
+  { name: "Ana Lucia Caetano", role: "Trustee", photo: "/images/team-ana.png" },
 ];
 
 const values = [
@@ -109,18 +113,46 @@ export default function AboutPage() {
           {team.map((t) => (
             <div key={t.name} className="text-center">
               <div className="relative w-full aspect-square rounded-2xl mb-3 overflow-hidden bg-gray-100">
-                <Image
-                  src={t.photo}
-                  alt={t.name}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover"
-                />
+                {t.photo ? (
+                  <Image
+                    src={t.photo}
+                    alt={t.name}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm italic">
+                    [Photo. Stephen to supply]
+                  </div>
+                )}
               </div>
               <p className="font-heading font-bold text-black text-sm">{t.name}</p>
               <p className="text-gray-500 text-xs">{t.role}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <WaveDivider fromColor="#FFFFFF" toColor="#FFF8EE" />
+
+      <Section bg="gray">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <PhotoFrame src="/images/ambassador-kenny.jpg" alt="Kenny McLean, SMILE ambassador" accentColor="yellow" />
+          <div>
+            <SectionHeading eyebrow="Our Ambassador" title="Kenny McLean." centered={false} />
+            <p className="text-gray-600 text-lg leading-relaxed mb-4">
+              We are absolutely thrilled to have Scotland National Team hero and Norwich City FC star
+              Kenny McLean as our charity ambassador. Fresh off scoring the historic winning goal that
+              sent Scotland to the World Cup, Kenny has become a national icon and a symbol of
+              determination, pride, and heart.
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              His commitment on the pitch is matched only by his passion for supporting children and
+              families with serious illness and disability, which is why we are truly honoured to
+              welcome him into the SMILE family.
+            </p>
+          </div>
         </div>
       </Section>
 

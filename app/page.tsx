@@ -283,18 +283,26 @@ export default function HomePage() {
         <SectionHeading title="Supported by" />
         <div className="flex flex-wrap gap-10 justify-center items-center">
           {[
-            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png" },
-            { name: "Co-op", logo: "/images/brands/partner-coop.png" },
-            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png" },
+            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png", href: "https://www.roccaristorante.co.uk/" },
+            { name: "Co-op", logo: "/images/brands/partner-coop.png", href: "https://www.coop.co.uk/" },
+            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png", href: "https://www.tnlcommunityfund.org.uk/" },
           ].map((partner) => (
-            <Image
+            <a
               key={partner.name}
-              src={partner.logo}
-              alt={partner.name}
-              width={160}
-              height={80}
-              className="h-16 w-auto object-contain"
-            />
+              href={partner.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={partner.name}
+              className="transition-transform hover:-translate-y-1"
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={160}
+                height={80}
+                className="h-16 w-auto object-contain"
+              />
+            </a>
           ))}
         </div>
         <div className="mt-12 text-center">

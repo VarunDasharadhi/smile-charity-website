@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Holistic Therapy Treatments",
-    description: "Free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, held at Hilary's House of Calm. A chance to unwind, recharge, and focus on your own wellbeing.",
+    description: "Free holistic therapy sessions for unpaid carers of children with serious illness or disabilities, held at Hilary's House of Calm and funded by the Community Health and Wellbeing Fund, managed by Voluntary Action South Lanarkshire. These sessions support your mental, emotional, and physical wellbeing, helping you manage stress, build emotional resilience, and take time for yourself.",
     eligibility: "Unpaid carers of a child with a serious illness or disability in Lanarkshire. Email smilechildrenscharity@gmail.com to register your interest.",
     icon: HeartPulse,
   },
   {
     title: "Family Days Out",
-    description: "Organised trips for families we support, like our annual Blair Drummond Safari Park day out, which brought 150 people together for a day of fun in its most recent year.",
-    eligibility: "Families supported by SMILE. Keep an eye on our News page for upcoming dates.",
+    description: "Organised trips offering families a day full of adventure, laughter, and relaxation. Our annual Blair Drummond Safari Park day out took 150 people last year, and another trip is planned for 2026, with the date to be announced soon.",
+    eligibility: "Families of children with serious illness or disabilities supported by SMILE. Keep an eye on our News page for upcoming dates.",
     icon: Sun,
   },
 ];

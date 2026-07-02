@@ -108,20 +108,38 @@ export default function CorporatePage() {
 
       <Section>
         <SectionHeading eyebrow="Our Partners" title="Businesses that already support SMILE." />
-        <div className="flex flex-wrap gap-10 justify-center items-center">
+        <p className="text-gray-600 text-lg max-w-xl mx-auto text-center -mt-6 mb-10">
+          We are incredibly grateful to the organisations and partners who support us.
+        </p>
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
-            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png" },
-            { name: "Co-op", logo: "/images/brands/partner-coop.png" },
-            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png" },
+            { name: "Rocca Hamilton", logo: "/images/brands/partner-rocca.png", href: "https://www.roccaristorante.co.uk/" },
+            { name: "Co-op", logo: "/images/brands/partner-coop.png", href: "https://www.coop.co.uk/" },
+            { name: "National Lottery Community Fund", logo: "/images/brands/partner-lottery.png", href: "https://www.tnlcommunityfund.org.uk/" },
           ].map((partner) => (
-            <Image
+            <a
               key={partner.name}
-              src={partner.logo}
-              alt={partner.name}
-              width={160}
-              height={80}
-              className="h-16 w-auto object-contain"
-            />
+              href={partner.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white border border-gray-100 rounded-2xl p-8 text-center transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
+            >
+              <span className="flex items-center justify-center h-20 mb-4">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={160}
+                  height={80}
+                  className="max-h-16 w-auto object-contain"
+                />
+              </span>
+              <p className="font-heading font-semibold text-xs uppercase tracking-widest text-black/50 mb-1">
+                Charity Partner
+              </p>
+              <p className="font-heading font-bold text-black group-hover:text-yellow-dark transition-colors">
+                {partner.name}
+              </p>
+            </a>
           ))}
         </div>
       </Section>
