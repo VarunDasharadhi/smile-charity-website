@@ -26,12 +26,12 @@ export default function IconLinkRow({ links }: IconLinkRowProps) {
         <Link
           key={link.label}
           href={link.href}
-          className="flex flex-col items-center gap-2 group"
+          className="flex flex-col items-center gap-2"
         >
           <span
-            className={`w-20 h-20 rounded-full flex items-center justify-center shadow-[0_14px_30px_rgba(0,0,0,0.15)] transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-translate-y-1 group-hover:scale-125 ${toneClasses[link.tone]}`}
+            className={`icon-badge w-20 h-20 rounded-full flex items-center justify-center shadow-[0_14px_30px_rgba(0,0,0,0.15)] ${toneClasses[link.tone]}`}
           >
-            <span className="inline-flex transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110">
+            <span className="icon-badge-inner inline-flex">
               {link.icon}
             </span>
           </span>

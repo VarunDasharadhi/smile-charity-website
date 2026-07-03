@@ -40,6 +40,23 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Icon-badge bulge hover. Written as plain CSS (not Tailwind's hover:/
+   group-hover: utilities) because Tailwind v4 wraps those in
+   @media (hover: hover) and (pointer: fine), which silently disables
+   them on touchscreen-equipped laptops even when using a mouse. */
+.icon-badge {
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.icon-badge-inner {
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+a:hover .icon-badge {
+  transform: translateY(-4px) scale(1.25);
+}
+a:hover .icon-badge-inner {
+  transform: scale(1.1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
