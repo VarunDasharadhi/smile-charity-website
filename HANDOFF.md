@@ -1,5 +1,31 @@
 # SMILE Children's Charity Website
 
+## Latest session (2026-07-03/04) — Polish pass: copy cleanup, senior UI/UX audit, icon hover bug fix, 9 commits
+
+### What was done
+1. **Copy and icon cleanup** -- removed every remaining long dash site-wide, replaced with commas/periods (commit `5fde09b`). Homepage quick-link icons recolored/reworked for context (`4ae70be`).
+2. **Hero text wrapping fixed** -- `PageHero` capped titles/subtitles too narrow (`max-w-2xl`/`max-w-xl`), causing sentences to wrap early with most of the banner empty on desktop. Widened to `max-w-5xl`/`max-w-3xl`, added `text-balance`/`text-pretty` across `PageHero`, `SectionHeading`, `CTABanner`. Events page title forced to break at its sentence boundary since `text-balance` alone still split it mid-word. Commit `e9cf376`.
+3. **Family Support page enriched** -- each service card now leads with a real photo, splits eligibility from how-to-access, and shows a funder badge where relevant. Commit `7dc0bc3`. Removed the duplicated services teaser from Meet Our Families (was showing the same 2 services as a brief blurb); replaced with a one-line pointer + button to Family Support so each page has one clear job (stories vs services). Commit `c1ce1a4`.
+4. **Full senior-designer UI/UX audit performed** -- screenshotted all 16 pages at desktop and mobile width, found and fixed 7 real issues in one pass (commit `0123a2c`): mobile horizontal scroll bug (off-canvas nav drawer had no `overflow-x: hidden` guard so its translated-off-screen geometry still counted toward page width), mobile menu's large empty gap (filled with phone/email/socials, matching desktop's utility bar), homepage hero's overlay darkening the entire photo including the 40% with no text on it (changed to a left-to-right gradient), the same child's photo appearing 3 times across Home/About/Our Story (removed from Home and About, kept only in Our Story where it's paired with Justin's story), partner logos with wildly inconsistent visual weight (Rocca's source file had far more internal padding than Co-op's; auto-cropped it), a dead-space alignment issue on the homepage Who-We-Are section (`items-center` on a mismatched-height grid switched to `items-start`), and Volunteer role cards all showing an identical uninformative "Flexible" tag (removed until real per-role data exists). Two claims from the initial audit were self-corrected after re-checking with devtools rather than trusting a screenshot: the mobile nav backdrop already existed (just subtle against an already-dark hero), and Donate's "three stacked CTAs" was actually one page CTA plus the site-wide footer strip every page has.
+5. **Donate vs Volunteer icon confusion fixed twice** -- first pass swapped Donate away from its original `HandHeart` (user preferred to keep it) and changed Volunteer to `Users` instead, a clearly distinct two-person mark. Commit `3ffa53f`.
+6. **Icon hover "bulge" effect added, then actually debugged** -- first attempt used Tailwind's `group-hover:scale-*` utilities (commit `1a8bf7e`), which the user reported as not working even after confirming the correct dev server was serving the page. Root cause found: Tailwind v4 wraps every `hover:`/`group-hover:` utility in `@media (hover: hover) and (pointer: fine)`, which many touchscreen-capable Windows laptops fail even while actively using a mouse, silently disabling the whole rule. Rewrote as plain unconditional CSS (`a:hover .icon-badge`) with no media gate. Commit `a1423f5`. User confirmed it now works.
+
+### Current state
+- All 9 commits pushed to GitHub (`e54358b..a1423f5`), Vercel auto-deploying to https://smile-charity-website.vercel.app.
+- Site now has no known layout bugs from the audit pass; all fixes verified via build + devtools inspection (and now one confirmed live by the user).
+- Same gates as before: donation processor choice, contact form backend, Sanity CMS, DNS repoint all still pending Stephen.
+- WhatsApp message to Steph from the previous session was drafted but sending status not confirmed this session.
+
+### Next steps
+1. Confirm whether Varun has sent the WhatsApp message to Steph yet (drafted last session, includes the Justin-photo confirmation ask).
+2. Any future Tailwind `hover:`/`group-hover:` effect added to this site should be checked against the same touchscreen/`(hover: hover)` gotcha found this session, either test on Varun's actual laptop or write it as plain CSS like `.icon-badge`.
+3. Fix `AnimatedCounter` comma-parsing bug flagged last session (still pending, worked around with "£30k+" instead of "£30,000+").
+4. Accessibility pass on header dropdown (hover-only, no keyboard focus handling) still outstanding from two sessions ago.
+
+### Gotchas
+- Playwright browser sessions on this machine can be shared/contended with other concurrent Claude sessions or the user's own testing; pages navigated unexpectedly mid-verification this session. If a screenshot looks inconsistent with what was just done, re-navigate and re-check before trusting it, or ask the user to verify directly.
+- The Playwright MCP browser used for verification in this environment reports `(hover: none)` (touch-emulated), so hover-dependent CSS cannot be visually screenshot-verified from that tool. Verify hover effects via computed-style/stylesheet inspection instead, and treat "confirmed working" as pending until the user checks on a real device.
+
 ## Latest session (2026-07-02, night) — Steph's answers actioned + full real-content pass from public sources, 15 commits
 
 ### What was done
