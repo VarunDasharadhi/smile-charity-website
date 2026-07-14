@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
-import PhotoFrame from "@/components/PhotoFrame";
+import NewsFilter from "@/components/NewsFilter";
 
 export const metadata: Metadata = {
   title: "News",
@@ -22,6 +21,13 @@ const articles = [
     date: "18 March 2026",
     excerpt: "South Lanarkshire Council has formally approved the transfer of Canderavon to SMILE, the foundation for a new respite house, sensory space, and community hub.",
     image: "/images/news-canderavon.jpg",
+  },
+  {
+    category: "Appeal",
+    title: "Women's Guild Visit - Machan's Church in Larkhall",
+    date: "3 March 2026",
+    excerpt: "We visited the Women's Guild at St Machan's Church in Larkhall, who kindly gifted the charity £50 plus additional donations of £207.",
+    image: "/images/news-guild.jpg",
   },
   {
     category: "Impact",
@@ -46,21 +52,12 @@ const articles = [
   },
   {
     category: "Appeal",
-    title: "Women's Guild Visit - Machan's Church in Larkhall",
-    date: "3 March 2026",
-    excerpt: "We visited the Women's Guild at St Machan's Church in Larkhall, who kindly gifted the charity £50 plus additional donations of £207.",
-    image: "/images/news-guild.jpg",
-  },
-  {
-    category: "Appeal",
     title: "£700 Donation From Broadlees Golf",
     date: "14 January 2026",
     excerpt: "Broadlees Golf raised an incredible £700 over the festive period to support SMILE's work with families across Lanarkshire.",
     image: "/images/news-broadlees.jpg",
   },
 ];
-
-const categories = ["All", "Appeal", "Events", "Impact", "Volunteer"];
 
 export default function NewsPage() {
   return (
@@ -73,37 +70,7 @@ export default function NewsPage() {
       />
 
       <Section>
-        <div className="flex gap-2 mb-10 overflow-x-auto pb-1">
-          {categories.map((c) => (
-            <button
-              key={c}
-              className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                c === "All"
-                  ? "bg-black text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((a, i) => (
-            <Link key={i} href="/news" className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-all">
-              <PhotoFrame src={a.image} alt={a.title} aspect="video" accentColor="yellow" />
-              <div className="p-5">
-                <span className="inline-block px-3 py-1 rounded-full bg-yellow text-black text-xs font-bold mb-3">
-                  {a.category}
-                </span>
-                <h3 className="font-heading font-bold text-black text-base mb-2 group-hover:text-yellow-dark transition-colors line-clamp-2">
-                  {a.title}
-                </h3>
-                <p className="text-gray-500 text-sm line-clamp-3 mb-3">{a.excerpt}</p>
-                <p className="text-gray-400 text-xs">{a.date}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <NewsFilter articles={articles} />
       </Section>
 
       <CTABanner
