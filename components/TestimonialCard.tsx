@@ -18,7 +18,10 @@ export default function TestimonialCard({
   delay = 0,
 }: TestimonialCardProps) {
   const initials = name
-    .split(" ")
+    .replace(/[^a-zA-Z\s]/g, "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
     .map((n) => n[0])
     .join("")
     .slice(0, 2)
