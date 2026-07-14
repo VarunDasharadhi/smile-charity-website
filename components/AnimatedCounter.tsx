@@ -11,11 +11,11 @@ export default function AnimatedCounter({ value, label }: AnimatedCounterProps) 
   const { ref, inView } = useInView();
   const [display, setDisplay] = useState("0");
 
-  const digits = value.replace(/[^0-9]/g, "");
-  const numericValue = parseInt(digits, 10);
-  const isNumeric = digits.length > 0 && !isNaN(numericValue);
-  const prefix = isNumeric ? value.slice(0, value.indexOf(digits[0])) : "";
-  const suffix = isNumeric ? value.slice(value.indexOf(digits[digits.length - 1]) + 1) : "";
+  const match = value.match(/\d+/);
+  const isNumeric = match !== null;
+  const numericValue = match ? parseInt(match[0], 10) : 0;
+  const prefix = match ? value.slice(0, match.index ?? 0) : "";
+  const suffix = match ? value.slice((match.index ?? 0) + match[0].length) : "";
 
   useEffect(() => {
     if (!inView || !isNumeric) {
