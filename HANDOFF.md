@@ -1,5 +1,20 @@
 # SMILE Children's Charity Website
 
+## Latest session (2026-07-04) — Vercel Analytics installed
+
+### What was done
+1. **Vercel Analytics installed** -- `@vercel/analytics` added, `<Analytics />` wired into `app/layout.tsx`. Zero-config page view and Web Vitals tracking, active on production deployments only (not localhost or previews). Commit `1b6d4be`.
+
+### Current state
+- Pushed to GitHub (`a1423f5..1b6d4be`), Vercel auto-deploying to https://smile-charity-website.vercel.app.
+- Analytics data will appear in the Vercel dashboard's Analytics tab once this deploys; may need a one-click "Enable" there the first time, not yet confirmed as enabled.
+
+### Next steps
+1. Check the Vercel dashboard's Analytics tab after this deploy lands, enable it if prompted.
+2. Confirm whether Varun has sent the WhatsApp message to Steph yet (drafted two sessions ago, includes the Justin-photo confirmation ask).
+3. Fix `AnimatedCounter` comma-parsing bug flagged two sessions ago (still pending, worked around with "£30k+" instead of "£30,000+").
+4. Accessibility pass on header dropdown (hover-only, no keyboard focus handling) still outstanding.
+
 ## Latest session (2026-07-03/04) — Polish pass: copy cleanup, senior UI/UX audit, icon hover bug fix, 9 commits
 
 ### What was done
