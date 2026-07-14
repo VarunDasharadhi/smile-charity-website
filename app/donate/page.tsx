@@ -3,6 +3,7 @@ import Section from "@/components/Section";
 import PageHero from "@/components/PageHero";
 import CTABanner from "@/components/CTABanner";
 import SectionHeading from "@/components/SectionHeading";
+import DonationAmountPicker from "@/components/DonationAmountPicker";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -13,8 +14,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const amounts = ["£5", "£10", "£25", "£50", "£100", "Other"];
 
 const impact = [
   { amount: "£5", description: "Covers the cost of a craft activity for a family day." },
@@ -37,31 +36,7 @@ export default function DonatePage() {
         <div className="max-w-xl mx-auto">
           <SectionHeading eyebrow="Choose an amount" title="How much would you like to give?" centered={false} />
 
-          {/* Frequency toggle */}
-          <div className="flex gap-2 mb-8 p-1 bg-gray-100 rounded-full w-fit shadow-inner">
-            <button className="px-5 py-2 rounded-full bg-black text-white text-sm font-bold">
-              One-off
-            </button>
-            <button className="px-5 py-2 rounded-full text-gray-600 text-sm font-semibold hover:text-black transition-colors">
-              Monthly
-            </button>
-          </div>
-
-          {/* Amount grid */}
-          <div className="grid grid-cols-3 gap-3 mb-8">
-            {amounts.map((a) => (
-              <button
-                key={a}
-                className={`py-4 rounded-2xl font-heading font-bold text-lg transition-all border-2 ${
-                  a === "£25"
-                    ? "bg-yellow border-yellow text-black shadow-[0_12px_24px_rgba(253,215,14,0.3)]"
-                    : "bg-white border-gray-200 text-black hover:border-yellow"
-                }`}
-              >
-                {a}
-              </button>
-            ))}
-          </div>
+          <DonationAmountPicker />
 
           {/* Processor placeholder */}
           <div className="bg-gray-50 rounded-3xl p-8 text-center border-2 border-dashed border-gray-200">
