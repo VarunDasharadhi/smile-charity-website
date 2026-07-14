@@ -124,55 +124,74 @@ export default function Header() {
             </Link>
 
             <nav className="hidden lg:flex flex-1 items-center justify-center gap-10" aria-label="Main navigation">
-              {navGroups.map((group) => (
-                <div
-                  key={group.label}
-                  className="relative group"
-                  onMouseEnter={() => setOpenDropdown(group.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <button
-                    className="relative flex items-center gap-1 text-base font-semibold text-black hover:text-yellow-dark transition-colors py-2"
-                    aria-haspopup="true"
-                    aria-expanded={openDropdown === group.label}
-                  >
-                    {group.label}
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                        openDropdown === group.label ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                    <span
-                      className={`absolute left-0 -bottom-0.5 h-0.5 bg-yellow rounded-full transition-all duration-300 ease-out ${
-                        openDropdown === group.label ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </button>
+              {navGroups.map((group) => {
+                const dropdownId = `nav-dropdown-${group.label.toLowerCase().replace(/\s+/g, "-")}`;
+                return (
                   <div
-                    className={`absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.15)] border border-gray-100 py-2 transition-all ${
-                      openDropdown === group.label
-                        ? "opacity-100 translate-y-0 pointer-events-auto"
-                        : "opacity-0 -translate-y-2 pointer-events-none"
-                    }`}
+                    key={group.label}
+                    className="relative group"
+                    onMouseEnter={() => setOpenDropdown(group.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                    onFocus={() => setOpenDropdown(group.label)}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                        setOpenDropdown(null);
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") {
+                        setOpenDropdown(null);
+                        e.currentTarget.querySelector("button")?.focus();
+                      }
+                    }}
                   >
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-50 hover:text-yellow-dark transition-colors"
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === group.label ? null : group.label)}
+                      className="relative flex items-center gap-1 text-base font-semibold text-black hover:text-yellow-dark transition-colors py-2"
+                      aria-haspopup="true"
+                      aria-expanded={openDropdown === group.label}
+                      aria-controls={dropdownId}
+                    >
+                      {group.label}
+                      <svg
+                        className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                          openDropdown === group.label ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        {item.label}
-                      </Link>
-                    ))}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                      <span
+                        className={`absolute left-0 -bottom-0.5 h-0.5 bg-yellow rounded-full transition-all duration-300 ease-out ${
+                          openDropdown === group.label ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <div
+                      id={dropdownId}
+                      className={`absolute top-full left-0 w-56 bg-white rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.15)] border border-gray-100 py-2 transition-all ${
+                        openDropdown === group.label
+                          ? "opacity-100 translate-y-0 pointer-events-auto"
+                          : "opacity-0 -translate-y-2 pointer-events-none"
+                      }`}
+                    >
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-50 hover:text-yellow-dark transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
               {flatLinks.map((link) => (
                 <Link
                   key={link.href}
