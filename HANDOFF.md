@@ -1,5 +1,30 @@
 # SMILE Children's Charity Website
 
+## Latest session (2026-07-14, afternoon) — Full-site QA pass, 5 real bugs fixed + keyboard accessibility, 6 commits
+
+### What was done
+1. **Full-site QA sweep** -- swept all 16 routes at desktop and mobile viewports checking console errors, broken images, and layout. Along the way, ruled out two false positives specific to headless browser automation (rAF throttling stalling the homepage stat counter, JS-injected scrollTo not moving the real scroll position for a reveal animation) by cross-checking against a production build and real mouse-wheel input, confirming both were test-harness artifacts rather than app bugs.
+2. **AnimatedCounter suffix bug fixed** -- `indexOf(char)` for the trailing digit found the wrong occurrence whenever a digit repeated ("200+" rendered as "2000+", "100+" as "1000+"). Previously logged as a comma-parsing bug; the real root cause was any repeated boundary digit, not specifically commas. Fixed by locating the digit run with a regex match instead of a character search. Commit `cd7e57b`.
+3. **Donate page amount and frequency buttons made interactive** -- found while reading the page during testing: the £5/£10/£25/£50/£100/Other grid and One-off/Monthly toggle had no state and no click handlers at all, "£25" was hardcoded as visually selected regardless of what was clicked. Extracted a `DonationAmountPicker` client component so the page can keep its metadata export. Commit `cf4e330`.
+4. **News page category filters made interactive, articles reordered chronologically** -- user reported the All/Appeal/Events/Impact/Volunteer filter buttons did nothing, same root cause as the donate buttons. Extracted a `NewsFilter` client component that actually filters, with an empty-state message for categories with no articles yet. Articles array also reordered to true newest-first (it had drifted out of date order). Commit `e842438`.
+5. **Testimonial avatar initials fixed for placeholder names** -- names like "[Family name]" produced garbled "[N" initials because brackets were counted as characters; strip non-letters before computing initials. Commit `513d0d3`.
+6. **Header dropdown made keyboard-accessible** -- outstanding gap flagged across at least 3 prior sessions: About/Get Involved dropdowns only opened on mouse hover, and their links stayed tab-focusable while visually hidden. Added focus/blur handling (opens when focus enters the group, closes only when focus truly leaves), a click toggle, and Escape to close and return focus to the trigger. Commit `ebaefd4`.
+
+### Current state
+- All 6 commits pushed to GitHub (`1b6d4be..ebaefd4`), Vercel auto-deploying to https://smile-charity-website.vercel.app.
+- Donate page's amount and frequency selection now works, but there is still no backend behind it, the processor placeholder note is unchanged and still pending Stephen's choice.
+- News category filters work correctly. Volunteer shows the empty-state message since no news article is currently tagged that way.
+- Header dropdown keyboard accessibility confirmed via focus/blur/Escape testing in Playwright, not yet checked with a real screen reader.
+- Same gates as before: donation processor choice, contact form backend, Sanity CMS, DNS repoint all still pending Stephen.
+
+### Next steps
+1. Confirm whether Varun has sent the WhatsApp message to Steph yet (drafted several sessions ago, includes the Justin-photo confirmation ask).
+2. When Stephen sends a Volunteer-tagged news item, the News page's Volunteer filter will show it correctly with no further code change needed.
+3. Consider auditing other pages for the same "decorative button with no state" pattern found on donate and news (nothing else confirmed yet, just a pattern worth watching for).
+
+### Gotchas
+- Testing this dev server via `http://127.0.0.1:3000` instead of `http://localhost:3000` breaks Turbopack's HMR websocket handshake in a way that also kills client-side interactivity (buttons render but onClick does nothing), even on a fresh page load with no HMR update involved. The 127.0.0.1 workaround was needed earlier in this session when another concurrent project's dev server was squatting on port 3000 via the IPv6 loopback interface; once that collision cleared, plain `localhost:3000` worked correctly again. Always verify via `localhost`, and if a "dead button" shows up during testing, check whether the test was accidentally going through 127.0.0.1 before assuming the app itself is broken.
+
 ## Latest session (2026-07-04) — Vercel Analytics installed
 
 ### What was done
