@@ -1,8 +1,8 @@
 # SMILE Charity Website
 
 **Client:** SMILE Children's Charity SCIO (SC053107), Larkhall, Scotland.
-**Engagement tracker:** `c:\Users\varun\my-EA\projects\smile-charity\README.md`
-**PRD:** `c:\Users\varun\my-EA\projects\smile-charity\prd.md`
+**Engagement tracker:** `~\my-EA\projects\smile-charity\README.md`
+**PRD:** `~\my-EA\projects\smile-charity\prd.md`
 
 Free build (Varun's first consulting client). Stephen covers infrastructure only.
 
@@ -92,7 +92,7 @@ Do NOT wire the donation processor, contact form backend, Sanity CMS, or do the 
 
 ## Git Status
 
-Own git repo (isolated from the stray repo at the `c:\Users\varun\repos\` root), on branch `main`, pushed to GitHub at `github.com/VarunDasharadhi/smile-charity-website` — currently Varun's personal account, to be transferred to a charity-owned GitHub account once Stephen sets one up. Connected to Vercel (`team-viper/smile-charity-website`); pushes to `main` auto-deploy to the live preview at `smile-charity-website.vercel.app`. The real domain has not been repointed yet.
+Run `git status` for current branch and remote state, and check the Vercel dashboard or CLI for current deploy state: hardcoded git/deploy facts in an instruction file inevitably go stale.
 
 ---
 
