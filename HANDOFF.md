@@ -1,3 +1,9 @@
+# HANDOFF, RETIRED 2026-09-09
+
+This file is retired. Never append new session entries here. Current facts are in `STATE.md`,
+dated decisions in `DECISIONS.md`, gotchas in `GOTCHAS.md`, session narrative in
+`docs/journal/`. This file's content below is kept as history only.
+
 # SMILE Children's Charity Website
 
 ## Latest session (2026-07-14, afternoon) — Full-site QA pass, 5 real bugs fixed + keyboard accessibility, 6 commits
@@ -147,5 +153,5 @@
 5. Follow up on 4 open questions from `prd.md` Section 11 (donation processor, shop type, contact form backend, Sanity CMS) before wiring any of those.
 
 ### Gotchas
-- The parent `c:\Users\varun\repos\` directory has a stray old git repo. This project shows as untracked inside it. Run `git init` INSIDE `smile-charity-website\` before any commit work. Do not use the parent repo for this project.
+- The parent `~\repos\` directory has a stray old git repo. This project shows as untracked inside it. Run `git init` INSIDE `smile-charity-website\` before any commit work. Do not use the parent repo for this project.
 - The web logos in `public/` were downloaded from the live site. They are fine for a preview but Stephen should supply the source files. Do not treat the downloaded PNGs as the authoritative brand asset.
